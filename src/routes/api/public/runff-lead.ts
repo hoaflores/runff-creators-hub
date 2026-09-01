@@ -38,11 +38,26 @@ export const Route = createFileRoute("/api/public/runff-lead")({
           );
         }
 
+        const d = parsed.data;
         const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
         const { error } = await supabaseAdmin.from("creators_leads").insert({
-          ...parsed.data,
-          state: parsed.data.state.toUpperCase(),
+          name: d.name,
+          whatsapp: d.whatsapp,
+          city: d.city,
+          state: d.state.toUpperCase(),
+          social_profile: d.social_profile,
+          follower_range: d.follower_range ?? null,
+          running_connection: d.running_connection,
+          event_interest: d.event_interest ?? null,
+          motivation: d.motivation ?? null,
+          consent: d.consent,
+          utm_source: d.utm_source ?? null,
+          utm_medium: d.utm_medium ?? null,
+          utm_campaign: d.utm_campaign ?? null,
+          utm_content: d.utm_content ?? null,
+          landing_variant: d.landing_variant ?? null,
         });
+
 
         if (error) {
           console.error("[runff-lead]", error.message);

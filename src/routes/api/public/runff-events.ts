@@ -164,6 +164,7 @@ export const Route = createFileRoute("/api/public/runff-events")({
             .select("*")
             .order("event_date", { ascending: true });
 
+
           return Response.json({
             ok: true,
             stale: false,
