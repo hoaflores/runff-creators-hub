@@ -14,7 +14,120 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      creators_leads: {
+        Row: {
+          city: string
+          consent: boolean
+          created_at: string
+          event_interest: string | null
+          follower_range: string | null
+          id: string
+          landing_variant: string | null
+          motivation: string | null
+          name: string
+          running_connection: string
+          social_profile: string
+          state: string
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          whatsapp: string
+        }
+        Insert: {
+          city: string
+          consent?: boolean
+          created_at?: string
+          event_interest?: string | null
+          follower_range?: string | null
+          id?: string
+          landing_variant?: string | null
+          motivation?: string | null
+          name: string
+          running_connection: string
+          social_profile: string
+          state: string
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          whatsapp: string
+        }
+        Update: {
+          city?: string
+          consent?: boolean
+          created_at?: string
+          event_interest?: string | null
+          follower_range?: string | null
+          id?: string
+          landing_variant?: string | null
+          motivation?: string | null
+          name?: string
+          running_connection?: string
+          social_profile?: string
+          state?: string
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          whatsapp?: string
+        }
+        Relationships: []
+      }
+      runff_events: {
+        Row: {
+          city: string | null
+          created_at: string
+          day_label: string | null
+          event_date: string | null
+          event_url: string | null
+          fetched_at: string
+          id: string
+          image_url: string | null
+          modality: string[]
+          month_label: string | null
+          organizer: string | null
+          source_id: string
+          state: string | null
+          status: string | null
+          title: string
+        }
+        Insert: {
+          city?: string | null
+          created_at?: string
+          day_label?: string | null
+          event_date?: string | null
+          event_url?: string | null
+          fetched_at?: string
+          id?: string
+          image_url?: string | null
+          modality?: string[]
+          month_label?: string | null
+          organizer?: string | null
+          source_id: string
+          state?: string | null
+          status?: string | null
+          title: string
+        }
+        Update: {
+          city?: string | null
+          created_at?: string
+          day_label?: string | null
+          event_date?: string | null
+          event_url?: string | null
+          fetched_at?: string
+          id?: string
+          image_url?: string | null
+          modality?: string[]
+          month_label?: string | null
+          organizer?: string | null
+          source_id?: string
+          state?: string | null
+          status?: string | null
+          title?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
