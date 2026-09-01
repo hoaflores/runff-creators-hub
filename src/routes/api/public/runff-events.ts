@@ -136,7 +136,7 @@ export const Route = createFileRoute("/api/public/runff-events")({
 
         const fresh =
           !force &&
-          newest !== null &&
+          !!newest &&
           Date.now() - new Date(newest).getTime() < CACHE_HOURS * 60 * 60 * 1000;
 
         if (fresh && cached && cached.length > 0) {
