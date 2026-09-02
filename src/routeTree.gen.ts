@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LeadsRunffCreatorsRouteImport } from './routes/leads-runff-creators'
 import { Route as RunffCreatorsRouteImport } from './routes/runff-creators'
 import { Route as ApiPublicRunffEventsRouteImport } from './routes/api/public/runff-events'
 import { Route as ApiPublicRunffLeadRouteImport } from './routes/api/public/runff-lead'
@@ -17,6 +18,11 @@ import { Route as ApiPublicRunffLeadRouteImport } from './routes/api/public/runf
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeadsRunffCreatorsRoute = LeadsRunffCreatorsRouteImport.update({
+  id: '/leads-runff-creators',
+  path: '/leads-runff-creators',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RunffCreatorsRoute = RunffCreatorsRouteImport.update({
@@ -37,12 +43,14 @@ const ApiPublicRunffLeadRoute = ApiPublicRunffLeadRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/leads-runff-creators': typeof LeadsRunffCreatorsRoute
   '/runff-creators': typeof RunffCreatorsRoute
   '/api/public/runff-events': typeof ApiPublicRunffEventsRoute
   '/api/public/runff-lead': typeof ApiPublicRunffLeadRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/leads-runff-creators': typeof LeadsRunffCreatorsRoute
   '/runff-creators': typeof RunffCreatorsRoute
   '/api/public/runff-events': typeof ApiPublicRunffEventsRoute
   '/api/public/runff-lead': typeof ApiPublicRunffLeadRoute
@@ -50,6 +58,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/leads-runff-creators': typeof LeadsRunffCreatorsRoute
   '/runff-creators': typeof RunffCreatorsRoute
   '/api/public/runff-events': typeof ApiPublicRunffEventsRoute
   '/api/public/runff-lead': typeof ApiPublicRunffLeadRoute
@@ -58,18 +67,21 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/leads-runff-creators'
     | '/runff-creators'
     | '/api/public/runff-events'
     | '/api/public/runff-lead'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/leads-runff-creators'
     | '/runff-creators'
     | '/api/public/runff-events'
     | '/api/public/runff-lead'
   id:
     | '__root__'
     | '/'
+    | '/leads-runff-creators'
     | '/runff-creators'
     | '/api/public/runff-events'
     | '/api/public/runff-lead'
@@ -77,6 +89,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LeadsRunffCreatorsRoute: typeof LeadsRunffCreatorsRoute
   RunffCreatorsRoute: typeof RunffCreatorsRoute
   ApiPublicRunffEventsRoute: typeof ApiPublicRunffEventsRoute
   ApiPublicRunffLeadRoute: typeof ApiPublicRunffLeadRoute
@@ -89,6 +102,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leads-runff-creators': {
+      id: '/leads-runff-creators'
+      path: '/leads-runff-creators'
+      fullPath: '/leads-runff-creators'
+      preLoaderRoute: typeof LeadsRunffCreatorsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/runff-creators': {
@@ -117,6 +137,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LeadsRunffCreatorsRoute: LeadsRunffCreatorsRoute,
   RunffCreatorsRoute: RunffCreatorsRoute,
   ApiPublicRunffEventsRoute: ApiPublicRunffEventsRoute,
   ApiPublicRunffLeadRoute: ApiPublicRunffLeadRoute,
