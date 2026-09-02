@@ -363,7 +363,7 @@ function Hero({
                   initial={{ y: "110%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8, delay: 0.1 + i * 0.09, ease: [0.22, 1, 0.36, 1] }}
-                  style={i === 2 ? { color: LIME } : undefined}
+                  style={{ color: i === 2 ? LIME : "inherit" }}
                 >
                   {line}
                 </motion.span>
