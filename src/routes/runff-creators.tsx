@@ -1432,7 +1432,7 @@ const FAQ: [string, string][] = [
   ],
 ];
 
-function Faq() {
+function Faq({ heroMsg }: { heroMsg: string }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section id="faq" className="px-5 py-20 md:px-10 md:py-24" style={{ background: "#101010" }}>
