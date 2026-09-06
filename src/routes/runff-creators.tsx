@@ -94,6 +94,46 @@ function scrollToId(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+/* CTA padrão reutilizado nas seções: WhatsApp (primário) ou scroll ao cadastro */
+function CtaWhats({
+  heroMsg,
+  label,
+  origem,
+  className = "",
+}: {
+  heroMsg: string;
+  label: string;
+  origem: string;
+  className?: string;
+}) {
+  return (
+    <a
+      href={whatsappLink(heroMsg)}
+      target="_blank"
+      rel="noopener"
+      onClick={() => track("whatsapp_open", { origem })}
+      className={`group inline-flex min-h-[52px] w-full items-center justify-center gap-2 px-7 text-[12px] font-semibold uppercase tracking-[0.18em] sm:w-auto ${className}`}
+      style={{ background: LIME, color: "#0B0B0B" }}
+    >
+      {label}
+      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+    </a>
+  );
+}
+
+function CtaCadastro({ label, className = "" }: { label: string; className?: string }) {
+  return (
+    <button
+      onClick={() => scrollToId("cadastro")}
+      className={`inline-flex min-h-[52px] w-full items-center justify-center gap-2 border px-7 text-[12px] font-semibold uppercase tracking-[0.18em] transition hover:border-white/60 sm:w-auto ${className}`}
+      style={{ borderColor: "rgba(255,255,255,0.35)" }}
+    >
+      {label}
+      <ArrowRight className="h-4 w-4" />
+    </button>
+  );
+}
+
 function daysUntil(date: string | null) {
   if (!date) return null;
   const target = new Date(`${date}T00:00:00`);
@@ -168,13 +208,13 @@ function RunffCreatorsPage() {
       <Header scrolled={scrolled} heroMsg={heroMsg} />
       <Hero cidade={cidade} heroMsg={heroMsg} eventCount={events?.length ?? null} />
       <Marquee items={["CORRA", "INFLUENCIE", "GANHE", "REPITA", "RUNFF CREATORS"]} />
-      <StatsBand />
+      <StatsBand heroMsg={heroMsg} />
       <ComoFunciona />
-      <Simulador />
-      <Recompensas />
-      <Corridas events={events} error={eventsError} cidade={cidade} />
+      <Simulador heroMsg={heroMsg} />
+      <Recompensas heroMsg={heroMsg} />
+      <Corridas events={events} error={eventsError} cidade={cidade} heroMsg={heroMsg} />
       <Cadastro cidade={cidade} events={events} />
-      <Faq />
+      <Faq heroMsg={heroMsg} />
       <Fechamento heroMsg={heroMsg} />
       <Footer />
       <StickyCta
@@ -224,13 +264,13 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <a
               href={whatsappLink(heroMsg)}
               target="_blank"
               rel="noopener"
               onClick={() => track("whatsapp_open", { origem: "header" })}
-              className="hidden min-h-[44px] items-center gap-2 px-5 text-[11px] font-semibold uppercase tracking-[0.16em] sm:inline-flex"
+              className="inline-flex min-h-[40px] items-center gap-2 px-3.5 text-[10px] font-semibold uppercase tracking-[0.14em] sm:min-h-[44px] sm:px-5 sm:text-[11px] sm:tracking-[0.16em]"
               style={{ background: LIME, color: "#0B0B0B" }}
             >
               Garantir vaga
@@ -268,6 +308,17 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
                     {item.label}
                   </button>
                 ))}
+                <button
+                  onClick={() => {
+                    setOpen(false);
+                    scrollToId("cadastro");
+                  }}
+                  className="mt-2 mb-3 inline-flex min-h-[52px] items-center justify-center gap-2 px-6 text-[12px] font-semibold uppercase tracking-[0.18em]"
+                  style={{ background: LIME, color: "#0B0B0B" }}
+                >
+                  Garantir minha vaga
+                  <ArrowRight className="h-4 w-4" />
+                </button>
               </div>
             </motion.div>
           )}
@@ -411,7 +462,7 @@ function Hero({
 
 /* ------------------------------------------------------------- statsband */
 
-function StatsBand() {
+function StatsBand({ heroMsg }: { heroMsg: string }) {
   const stats = [
     { value: <Counter to={10} suffix="%" />, label: "de comissão por inscrição" },
     { value: "Cupom", label: "de desconto opcional" },
@@ -421,15 +472,23 @@ function StatsBand() {
 
   return (
     <section className="border-b px-5 py-12 md:px-10" style={{ borderColor: LINE }}>
-      <div className="mx-auto grid max-w-[1500px] gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        {stats.map((stat, i) => (
-          <Reveal key={i} delay={i * 0.06}>
-            <p className="font-display leading-none text-[clamp(2.4rem,6vw,4rem)]" style={{ color: LIME }}>
-              {stat.value}
-            </p>
-            <p className="mt-2 text-[13px] uppercase tracking-[0.14em] text-white/45">{stat.label}</p>
-          </Reveal>
-        ))}
+      <div className="mx-auto max-w-[1500px]">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((stat, i) => (
+            <Reveal key={i} delay={i * 0.06}>
+              <p className="font-display leading-none text-[clamp(2.2rem,10vw,4rem)]" style={{ color: LIME }}>
+                {stat.value}
+              </p>
+              <p className="mt-2 text-[13px] uppercase tracking-[0.14em] text-white/45">{stat.label}</p>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={0.15}>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <CtaWhats heroMsg={heroMsg} label="Quero participar agora" origem="stats" />
+            <CtaCadastro label="Fazer meu cadastro" />
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -523,7 +582,7 @@ function ComoFunciona() {
 
 /* ------------------------------------------------------------- simulador */
 
-function Simulador() {
+function Simulador({ heroMsg }: { heroMsg: string }) {
   const [ticket, setTicket] = useState(120);
   const [vendas, setVendas] = useState(40);
   const ganho = ticket * 0.1 * vendas;
@@ -596,6 +655,10 @@ function Simulador() {
               </p>
             </div>
           </div>
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+            <CtaWhats heroMsg={heroMsg} label="Quero ganhar com isso" origem="simulador" />
+            <CtaCadastro label="Fazer meu cadastro" />
+          </div>
         </Reveal>
       </div>
     </section>
@@ -631,7 +694,7 @@ const TRILHA = [
   },
 ];
 
-function Recompensas() {
+function Recompensas({ heroMsg }: { heroMsg: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 70%", "end 60%"] });
   const line = useSpring(scrollYProgress, { stiffness: 90, damping: 24, mass: 0.4 });
@@ -680,6 +743,13 @@ function Recompensas() {
           influencer: você escolhe como compor sua comissão + o cupom, dentro do limite de 10% total.
           Vagas limitadas e aprovação sujeita à validação da equipe.
         </p>
+
+        <Reveal delay={0.1}>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <CtaWhats heroMsg={heroMsg} label="Quero esses benefícios" origem="recompensas" />
+            <CtaCadastro label="Garantir minha vaga" />
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -691,10 +761,12 @@ function Corridas({
   events,
   error,
   cidade,
+  heroMsg,
 }: {
   events: RunffEvent[] | null;
   error: boolean;
   cidade: string | null;
+  heroMsg: string;
 }) {
   const [filtro, setFiltro] = useState<"todas" | "regiao" | "mes">("todas");
   const scroller = useRef<HTMLDivElement>(null);
@@ -869,13 +941,21 @@ function Corridas({
           })}
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          <button
+            onClick={() => scrollToId("cadastro")}
+            className="inline-flex min-h-[52px] items-center justify-center gap-2 px-7 text-[12px] font-semibold uppercase tracking-[0.18em]"
+            style={{ background: LIME, color: "#0B0B0B" }}
+          >
+            <Ticket className="h-4 w-4" />
+            Escolher minha corrida
+          </button>
           <a
             href="https://runff.com.br/#lista_eventos"
             target="_blank"
             rel="noopener"
-            className="inline-flex min-h-[48px] items-center gap-2 px-6 text-[11px] font-semibold uppercase tracking-[0.18em]"
-            style={{ background: LIME, color: "#0B0B0B" }}
+            className="inline-flex min-h-[52px] items-center justify-center gap-2 border px-6 text-[11px] font-semibold uppercase tracking-[0.18em] transition hover:border-white/60"
+            style={{ borderColor: LINE }}
           >
             <CalendarDays className="h-4 w-4" />
             Calendário oficial Runff
@@ -1352,7 +1432,7 @@ const FAQ: [string, string][] = [
   ],
 ];
 
-function Faq() {
+function Faq({ heroMsg }: { heroMsg: string }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section id="faq" className="px-5 py-20 md:px-10 md:py-24" style={{ background: "#101010" }}>
@@ -1393,6 +1473,13 @@ function Faq() {
             </div>
           ))}
         </div>
+
+        <Reveal delay={0.1}>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <CtaWhats heroMsg={heroMsg} label="Falar com a equipe" origem="faq" />
+            <CtaCadastro label="Garantir minha vaga" />
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -1443,7 +1530,7 @@ function Footer() {
   return (
     <>
       <Marquee items={["RUN FAST", "RUN FORWARD", "RUNFF CREATORS"]} reverse dark />
-      <footer className="border-t px-5 py-10 md:px-10" style={{ borderColor: "#1D1D1D" }}>
+      <footer className="border-t px-5 pb-28 pt-10 md:px-10 lg:py-10" style={{ borderColor: "#1D1D1D" }}>
         <div className="mx-auto flex max-w-[1500px] flex-col gap-4 text-[12px] text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <p>Runff Creators · Programa de parceiros regionais da Runff.</p>
           <p>
