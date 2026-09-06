@@ -743,6 +743,13 @@ function Recompensas({ heroMsg }: { heroMsg: string }) {
           influencer: você escolhe como compor sua comissão + o cupom, dentro do limite de 10% total.
           Vagas limitadas e aprovação sujeita à validação da equipe.
         </p>
+
+        <Reveal delay={0.1}>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <CtaWhats heroMsg={heroMsg} label="Quero esses benefícios" origem="recompensas" />
+            <CtaCadastro label="Garantir minha vaga" />
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -754,10 +761,12 @@ function Corridas({
   events,
   error,
   cidade,
+  heroMsg,
 }: {
   events: RunffEvent[] | null;
   error: boolean;
   cidade: string | null;
+  heroMsg: string;
 }) {
   const [filtro, setFiltro] = useState<"todas" | "regiao" | "mes">("todas");
   const scroller = useRef<HTMLDivElement>(null);
