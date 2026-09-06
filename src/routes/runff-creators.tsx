@@ -300,7 +300,7 @@ function Hero({
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "16%"]);
   const fade = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
 
-  const lines = ["CORRA, INFLUENCIE", "E GANHE COM ISSO", "COM A RUNFF DO SEU LADO"];
+  const lines = ["NUNCA MAIS", "PAGUE", "PARA CORRER!"];
 
   return (
     <section
@@ -371,10 +371,8 @@ function Hero({
             transition={{ delay: 0.5 }}
             className="mt-6 max-w-lg text-[15px] leading-relaxed text-white/70 md:text-[16px]"
           >
-            Divulgue as corridas Runff e ganhe <strong>até 10% por inscrição</strong>, com cupom de
-            desconto opcional. E tem mais: você ainda pode escolher uma prova e conquistar{" "}
+            Divulgue as corridas Runff e ganhe <strong>até 10% por inscrição</strong>. E tem mais: você ainda pode escolher uma prova e conquistar{" "}
             <strong>inscrição + kit completo</strong> gravando 10 conteúdos aprovados.
-            {eventCount ? ` ${eventCount} corridas abertas agora.` : ""}
           </motion.p>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -386,7 +384,7 @@ function Hero({
               className="group inline-flex min-h-[50px] items-center justify-center gap-2 px-7 text-[12px] font-semibold uppercase tracking-[0.18em]"
               style={{ background: LIME, color: "#0B0B0B" }}
             >
-              Quero garantir minha vaga
+              QUERO SER INFLUENCER RUNFF
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <button
@@ -511,7 +509,7 @@ function ComoFunciona() {
                 </h3>
                 <p className="mt-3 max-w-3xl text-[14px] leading-relaxed text-white/65">
                   Escolha uma corrida Runff e, cumprindo 10 conteúdos validados e aprovados sobre o
-                  evento, você recebe inscrição + kit completo de presente — sem precisar vender nada.
+                  evento, você recebe inscrição + kit completo de presente, sem precisar vender nada.
                   Não é automático: a vaga é validada com nossa equipe de atendimento.
                 </p>
               </div>
@@ -652,8 +650,8 @@ function Recompensas() {
           <SectionTag n="03">O que você recebe</SectionTag>
           <SectionTitle className="mt-6 max-w-3xl">Comissão, kit, cupom e apoio de verdade.</SectionTitle>
           <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-white/65">
-            Ganhe com suas vendas e, se quiser, participe da campanha de conteúdo para correr de
-            graça com kit completo — sempre com uma equipe do seu lado.
+             Ganhe com suas vendas e, se quiser, participe da campanha de conteúdo para correr de
+             graça com kit completo, sempre com uma equipe do seu lado.
           </p>
         </Reveal>
 
@@ -1429,7 +1427,7 @@ function Fechamento({ heroMsg }: { heroMsg: string }) {
       <div className="relative mx-auto max-w-[1500px]">
         <Reveal>
           <h2 className="max-w-4xl font-display uppercase leading-[0.9] text-[clamp(2.3rem,7vw,6rem)]">
-            Seu corre já move pessoas. Agora ele também pode render — e te levar pra largada de graça.
+            SEU CORRE JÁ MOVE PESSOAS. AGORA ELE TAMBÉM PODE RENDER E TE LEVAR PRA LARGADA DE GRAÇA.
           </h2>
           <a
             href={whatsappLink(heroMsg)}
