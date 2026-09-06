@@ -208,7 +208,7 @@ function RunffCreatorsPage() {
       <Header scrolled={scrolled} heroMsg={heroMsg} />
       <Hero cidade={cidade} heroMsg={heroMsg} eventCount={events?.length ?? null} />
       <Marquee items={["CORRA", "INFLUENCIE", "GANHE", "REPITA", "RUNFF CREATORS"]} />
-      <StatsBand />
+      <StatsBand heroMsg={heroMsg} />
       <ComoFunciona />
       <Simulador />
       <Recompensas />
@@ -308,6 +308,17 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
                     {item.label}
                   </button>
                 ))}
+                <button
+                  onClick={() => {
+                    setOpen(false);
+                    scrollToId("cadastro");
+                  }}
+                  className="mt-2 mb-3 inline-flex min-h-[52px] items-center justify-center gap-2 px-6 text-[12px] font-semibold uppercase tracking-[0.18em]"
+                  style={{ background: LIME, color: "#0B0B0B" }}
+                >
+                  Garantir minha vaga
+                  <ArrowRight className="h-4 w-4" />
+                </button>
               </div>
             </motion.div>
           )}
