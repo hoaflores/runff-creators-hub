@@ -741,8 +741,9 @@ function Corridas({
           <SectionTag n="04">Próximas corridas</SectionTag>
           <SectionTitle className="mt-6 max-w-3xl">Escolha a prova que você quer receber.</SectionTitle>
           <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-white/65">
-            Corridas abertas no calendário oficial Runff. Você pode solicitar vaga na campanha de
-            conteúdo para qualquer uma delas — sujeito à aprovação do time.
+            Corridas abertas no calendário oficial Runff. Você pode divulgar qualquer uma delas com
+            seu link e cupom — e também solicitar a vaga da campanha de conteúdo, sujeita à
+            aprovação do time.
           </p>
         </Reveal>
 
@@ -1032,12 +1033,12 @@ function Cadastro({ cidade, events }: { cidade: string | null; events: RunffEven
             </SectionTitle>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-white/65">
               Leva menos de dois minutos. Depois de enviar, abrimos o WhatsApp com a mensagem pronta
-              para o time Runff validar sua vaga.
+              para o time Runff validar sua entrada.
             </p>
             <ul className="mt-8 space-y-4">
               {[
-                "Inscrição + kit completo ao cumprir as entregas",
-                "Equipe de atendimento para ideias e acompanhamento",
+                "Comissão de até 10% por inscrição vendida",
+                "Campanha: 10 conteúdos aprovados = kit completo + inscrição",
                 "Cupom de desconto opcional (composição dos seus 10%)",
               ].map((item) => (
                 <li key={item} className="flex gap-3 text-[15px] leading-relaxed text-white/70">
@@ -1331,32 +1332,32 @@ function Cadastro({ cidade, events }: { cidade: string | null; events: RunffEven
 
 const FAQ: [string, string][] = [
   [
-    "Preciso pagar alguma coisa para participar?",
-    "Não. A proposta é você receber inscrição + kit completo ao cumprir as entregas de conteúdo. Não precisa vender nada.",
+    "Como ganho comissão?",
+    "Você recebe um link próprio de divulgação e ganha até 10% por cada inscrição vendida com ele.",
   ],
   [
-    "Quantos conteúdos preciso gravar?",
-    "São 10 conteúdos validados e aprovados sobre o evento. Nossa equipe acompanha você para ajudar nas ideias.",
+    "Como funciona o cupom de desconto?",
+    "O cupom é opcional. O cálculo é baseado nos seus 10% de comissão: você escolhe como compor comissão + cupom, dentro do limite de 10% total.",
   ],
   [
-    "A vaga é garantida?",
+    "O que é a campanha dos 10 conteúdos?",
+    "Um diferencial com vagas limitadas: você escolhe uma corrida e, gravando 10 conteúdos validados e aprovados sobre o evento, recebe inscrição + kit completo de presente — sem precisar vender nada.",
+  ],
+  [
+    "A vaga da campanha é garantida?",
     "Não. As vagas são limitadas e a aprovação depende da validação da equipe de atendimento Runff.",
   ],
   [
-    "E se eu quiser comissão ou cupom?",
-    "Você pode optar por criar cupom de desconto. O cálculo é baseado nos 10% de comissão: você escolhe como dividir comissão + cupom, dentro do limite de 10% total.",
+    "Preciso pagar alguma coisa para participar?",
+    "Não. O cadastro é gratuito e a comissão é sua. Na campanha de conteúdo, o kit e a inscrição são presente.",
   ],
   [
     "Qual o papel da equipe Runff?",
-    "Uma equipe fica à disposição para auxiliar ativamente na construção de conteúdos, ideias e acompanhamento das entregas.",
+    "Uma equipe fica à disposição para auxiliar ativamente na construção de conteúdos, ideias e acompanhamento de vendas.",
   ],
   [
     "Posso escolher qualquer corrida?",
-    "Você escolhe a corrida de interesse no cadastro. A equipe valida se ainda há vaga para aquela prova.",
-  ],
-  [
-    "Como recebo o kit e a inscrição?",
-    "Após a aprovação dos 10 conteúdos, a equipe Runff libera sua inscrição e envia o kit completo de presente.",
+    "Você indica a corrida de interesse no cadastro. Para a campanha de conteúdo, a equipe valida se ainda há vaga para aquela prova.",
   ],
 ];
 
@@ -1428,7 +1429,7 @@ function Fechamento({ heroMsg }: { heroMsg: string }) {
       <div className="relative mx-auto max-w-[1500px]">
         <Reveal>
           <h2 className="max-w-4xl font-display uppercase leading-[0.9] text-[clamp(2.3rem,7vw,6rem)]">
-            Seu corre já move pessoas. Agora, corra de graça com kit completo.
+            Seu corre já move pessoas. Agora ele também pode render — e te levar pra largada de graça.
           </h2>
           <a
             href={whatsappLink(heroMsg)}
