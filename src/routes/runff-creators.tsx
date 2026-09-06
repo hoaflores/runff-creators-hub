@@ -31,9 +31,9 @@ import { LIME, LINE, track, whatsappLink, type RunffEvent } from "@/lib/runff/co
 
 const SITE = "https://project--3390aa7f-a718-4ee1-8ee0-b9306c88086b.lovable.app";
 const OG_IMAGE = `${SITE}${ogImage.url}`;
-const TITLE = "Runff Creators | Corra de graça com kit completo";
+const TITLE = "Runff Creators | Ganhe com corrida e corra de graça";
 const DESCRIPTION =
-  "Escolha uma corrida Runff, grave 10 conteúdos validados e receba inscrição + kit completo. Vagas limitadas.";
+  "Divulgue corridas Runff e ganhe até 10% por inscrição, com cupom opcional. E ainda pode conquistar inscrição + kit completo gravando 10 conteúdos aprovados.";
 
 export const Route = createFileRoute("/runff-creators")({
   head: () => ({
@@ -74,14 +74,16 @@ export const Route = createFileRoute("/runff-creators")({
 
 const NAV = [
   { id: "como-funciona", label: "Como funciona" },
+  { id: "ganhos", label: "Ganhos" },
   { id: "recompensas", label: "Benefícios" },
   { id: "corridas", label: "Corridas" },
   { id: "faq", label: "FAQ" },
 ];
 
 const STICKY_LABEL: Record<string, string> = {
-  topo: "Garantir minha vaga",
+  topo: "Quero participar",
   "como-funciona": "Quero participar",
+  ganhos: "Quero ganhar com isso",
   recompensas: "Quero esses benefícios",
   corridas: "Escolher minha corrida",
   cadastro: "Garantir minha vaga",
@@ -127,7 +129,7 @@ function RunffCreatorsPage() {
   }, []);
 
   useEffect(() => {
-    const ids = ["topo", "como-funciona", "recompensas", "corridas", "cadastro", "faq"];
+    const ids = ["topo", "como-funciona", "ganhos", "recompensas", "corridas", "cadastro", "faq"];
     const observer = new IntersectionObserver(
       (entries) => {
         const best = entries
@@ -151,7 +153,7 @@ function RunffCreatorsPage() {
     track("page_view_runff_creators", { cidade: c });
   }, []);
 
-  const heroMsg = `Oi! Vi a página Runff Creators e quero garantir minha vaga na campanha de conteúdo.${
+  const heroMsg = `Oi! Vi a página Runff Creators e quero participar.${
     cidade ? ` Minha cidade é ${cidade}.` : ""
   }`;
 
@@ -175,6 +177,7 @@ function RunffCreatorsPage() {
       <Marquee items={["CORRA", "INFLUENCIE", "GANHE", "REPITA", "RUNFF CREATORS"]} />
       <StatsBand />
       <ComoFunciona />
+      <Simulador />
       <Recompensas />
       <Corridas events={events} error={eventsError} cidade={cidade} />
       <Cadastro cidade={cidade} events={events} />
@@ -297,7 +300,7 @@ function Hero({
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "16%"]);
   const fade = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
 
-  const lines = ["CORRA DE GRAÇA", "COM KIT COMPLETO", "SÓ POR CRIAR CONTEÚDO"];
+  const lines = ["CORRA, INFLUENCIE", "E GANHE COM ISSO", "COM A RUNFF DO SEU LADO"];
 
   return (
     <section
@@ -343,7 +346,7 @@ function Hero({
             style={{ borderColor: LIME, color: LIME }}
           >
             <Sparkles className="h-3 w-3" />
-            Vagas limitadas · Campanha de criação de conteúdo
+            Comissão de até 10% · Campanha de kit completo com vagas limitadas
           </motion.div>
 
           <h1 className="mt-6 font-display uppercase leading-[0.88] tracking-[-0.015em] text-[clamp(2.5rem,8vw,6.5rem)]">
@@ -368,8 +371,9 @@ function Hero({
             transition={{ delay: 0.5 }}
             className="mt-6 max-w-lg text-[15px] leading-relaxed text-white/70 md:text-[16px]"
           >
-            Escolha a corrida Runff que você quer correr, grave 10 conteúdos validados sobre o evento
-            e receba <strong>inscrição + kit completo</strong>. Sem precisar vender nada.
+            Divulgue as corridas Runff e ganhe <strong>até 10% por inscrição</strong>, com cupom de
+            desconto opcional. E tem mais: você ainda pode escolher uma prova e conquistar{" "}
+            <strong>inscrição + kit completo</strong> gravando 10 conteúdos aprovados.
             {eventCount ? ` ${eventCount} corridas abertas agora.` : ""}
           </motion.p>
 
@@ -418,10 +422,10 @@ function Hero({
 
 function StatsBand() {
   const stats = [
-    { value: <Counter to={10} />, label: "conteúdos aprovados" },
-    { value: "Kit", label: "completo de presente" },
-    { value: "Inscrição", label: "garantida na prova" },
-    { value: "Vagas", label: "limitadas por evento" },
+    { value: <Counter to={10} suffix="%" />, label: "de comissão por inscrição" },
+    { value: "Cupom", label: "de desconto opcional" },
+    { value: "Kit", label: "completo + inscrição na campanha" },
+    { value: "Equipe", label: "ativa no seu conteúdo" },
   ];
 
   return (
@@ -444,24 +448,24 @@ function StatsBand() {
 
 const PASSOS = [
   {
-    icon: CalendarDays,
-    t: "Escolha sua corrida",
-    d: "Veja as provas Runff abertas e escolha aquela que você quer correr com kit completo.",
-  },
-  {
     icon: Users,
-    t: "Cadastre-se e converse",
-    d: "Preencha o formulário. Nosso time de atendimento entra em contato pelo WhatsApp para validar sua vaga.",
+    t: "Cadastre-se",
+    d: "Preencha o formulário e nosso time de atendimento valida sua entrada pelo WhatsApp.",
   },
   {
-    icon: Video,
-    t: "Grave 10 conteúdos",
-    d: "Com apoio da nossa equipe de ideias e acompanhamento, produza 10 conteúdos sobre o evento.",
+    icon: Ticket,
+    t: "Receba seu link e cupom",
+    d: "Você recebe link próprio de divulgação e escolhe se quer criar um cupom de desconto.",
   },
   {
-    icon: Gift,
-    t: "Receba kit + inscrição",
-    d: "Depois dos conteúdos aprovados, você recebe inscrição na prova e o kit completo de presente.",
+    icon: Sparkles,
+    t: "Divulgue com apoio",
+    d: "Uma equipe à disposição para auxiliar ativamente: ideias, construção de conteúdos e acompanhamento de vendas.",
+  },
+  {
+    icon: Coins,
+    t: "Ganhe comissão",
+    d: "Até 10% por inscrição vendida, com pagamento recorrente enquanto suas vendas saírem.",
   },
 ];
 
@@ -472,7 +476,7 @@ function ComoFunciona() {
         <Reveal>
           <SectionTag n="01">Como funciona</SectionTag>
           <SectionTitle className="mt-6 max-w-3xl">
-            Quatro passos do cadastro à largada.
+            Quatro passos do cadastro à comissão.
           </SectionTitle>
         </Reveal>
 
@@ -493,6 +497,115 @@ function ComoFunciona() {
             );
           })}
         </div>
+
+        <Reveal delay={0.1}>
+          <div className="mt-10 border p-7 md:p-9" style={{ borderColor: LIME, background: "#0D1206" }}>
+            <div className="grid items-center gap-6 lg:grid-cols-[auto_1fr_auto]">
+              <Video className="h-9 w-9" style={{ color: LIME }} />
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em]" style={{ color: LIME }}>
+                  Diferencial da campanha · Vagas limitadas
+                </p>
+                <h3 className="mt-2 font-display text-[28px] uppercase leading-tight md:text-[34px]">
+                  Grave 10 conteúdos aprovados e corra de graça com kit completo
+                </h3>
+                <p className="mt-3 max-w-3xl text-[14px] leading-relaxed text-white/65">
+                  Escolha uma corrida Runff e, cumprindo 10 conteúdos validados e aprovados sobre o
+                  evento, você recebe inscrição + kit completo de presente — sem precisar vender nada.
+                  Não é automático: a vaga é validada com nossa equipe de atendimento.
+                </p>
+              </div>
+              <button
+                onClick={() => scrollToId("cadastro")}
+                className="inline-flex min-h-[52px] items-center justify-center gap-2 px-7 text-[12px] font-semibold uppercase tracking-[0.18em]"
+                style={{ background: LIME, color: "#0B0B0B" }}
+              >
+                Quero essa vaga <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------- simulador */
+
+function Simulador() {
+  const [ticket, setTicket] = useState(120);
+  const [vendas, setVendas] = useState(40);
+  const ganho = ticket * 0.1 * vendas;
+
+  return (
+    <section id="ganhos" className="px-5 py-20 md:px-10 md:py-24">
+      <div className="mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-2 lg:items-center">
+        <Reveal>
+          <SectionTag n="02">Quanto você pode ganhar</SectionTag>
+          <SectionTitle className="mt-6">Faça as contas da sua audiência.</SectionTitle>
+          <p className="mt-6 max-w-md text-[15px] leading-relaxed text-white/65">
+            Arraste e veja uma estimativa. O valor é uma simulação com 10% de comissão — os ganhos
+            reais dependem das suas vendas e de como você compõe comissão + cupom.*
+          </p>
+        </Reveal>
+
+        <Reveal delay={0.08}>
+          <div className="border p-7 md:p-9" style={{ borderColor: LINE, background: "#0E0E0E" }}>
+            <div>
+              <div className="flex items-baseline justify-between">
+                <label htmlFor="ticket" className="text-[11px] uppercase tracking-[0.18em] text-white/50">
+                  Ticket médio da inscrição
+                </label>
+                <span className="font-display text-3xl" style={{ color: LIME }}>
+                  R$ {ticket}
+                </span>
+              </div>
+              <input
+                id="ticket"
+                type="range"
+                min={60}
+                max={300}
+                step={10}
+                value={ticket}
+                onChange={(e) => setTicket(Number(e.target.value))}
+                className="mt-4 w-full accent-[#CCFC57]"
+              />
+            </div>
+            <div className="mt-8">
+              <div className="flex items-baseline justify-between">
+                <label htmlFor="vendas" className="text-[11px] uppercase tracking-[0.18em] text-white/50">
+                  Inscrições vendidas por mês
+                </label>
+                <span className="font-display text-3xl" style={{ color: LIME }}>
+                  {vendas}
+                </span>
+              </div>
+              <input
+                id="vendas"
+                type="range"
+                min={5}
+                max={300}
+                step={5}
+                value={vendas}
+                onChange={(e) => setVendas(Number(e.target.value))}
+                className="mt-4 w-full accent-[#CCFC57]"
+              />
+            </div>
+            <div className="mt-9 border-t pt-7" style={{ borderColor: LINE }}>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-white/45">
+                Estimativa de ganho mensal
+              </p>
+              <p className="mt-1 font-display leading-none text-[clamp(3rem,7vw,4.6rem)]" style={{ color: LIME }}>
+                {ganho.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 })}
+              </p>
+              <p className="mt-3 text-[12px] leading-relaxed text-white/40">
+                * Simulação com comissão de 10%. O cupom de desconto é opcional e seu cálculo é
+                baseado nos seus 10% de comissão: você escolhe como compor comissão + cupom, dentro
+                do limite de 10% total.
+              </p>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -502,28 +615,28 @@ function ComoFunciona() {
 
 const TRILHA = [
   {
+    icon: Coins,
+    marco: "Comissão",
+    premio: "Até 10% por inscrição",
+    detalhe: "Cada venda com seu link rende comissão, paga de forma recorrente.",
+  },
+  {
     icon: Gift,
-    marco: "Conteúdos aprovados",
+    marco: "Campanha de conteúdo",
     premio: "Inscrição + kit completo",
-    detalhe: "Cumpra os 10 conteúdos validados sobre o evento e receba inscrição + kit de presente.",
+    detalhe: "Grave 10 conteúdos aprovados sobre o evento e corra de graça, sem precisar vender.",
+  },
+  {
+    icon: Ticket,
+    marco: "Cupom opcional",
+    premio: "Desconto para sua base",
+    detalhe: "Você escolhe se cria cupom. A composição sai dos seus 10% de comissão.",
   },
   {
     icon: Users,
     marco: "Equipe à disposição",
-    premio: "Apoio ativo de conteúdo",
-    detalhe: "Nossa equipe ajuda com ideias, construção de conteúdos e acompanhamento de entregas.",
-  },
-  {
-    icon: Ticket,
-    marco: "Quer ir além?",
-    premio: "Comissão + cupom",
-    detalhe: "Você pode optar por criar cupom de desconto. A composição sai dos seus 10% de comissão.",
-  },
-  {
-    icon: BadgeCheck,
-    marco: "Destaque consistente",
-    premio: "Seleção Runff",
-    detalhe: "Creators com entregas consistentes podem ser convidados para ciclos especiais com a Runff.",
+    premio: "Apoio ativo de verdade",
+    detalhe: "Ideias, construção de conteúdos e acompanhamento de vendas com o time Runff.",
   },
 ];
 
@@ -536,11 +649,11 @@ function Recompensas() {
     <section id="recompensas" className="px-5 py-20 md:px-10 md:py-24">
       <div className="mx-auto max-w-[1500px]">
         <Reveal>
-          <SectionTag n="02">O que você recebe</SectionTag>
-          <SectionTitle className="mt-6 max-w-3xl">Kit, inscrição e apoio de verdade.</SectionTitle>
+          <SectionTag n="03">O que você recebe</SectionTag>
+          <SectionTitle className="mt-6 max-w-3xl">Comissão, kit, cupom e apoio de verdade.</SectionTitle>
           <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-white/65">
-            Não é só comissão. A proposta principal é você correr de graça com o kit completo, tendo
-            uma equipe do seu lado para criar conteúdo.
+            Ganhe com suas vendas e, se quiser, participe da campanha de conteúdo para correr de
+            graça com kit completo — sempre com uma equipe do seu lado.
           </p>
         </Reveal>
 
@@ -625,11 +738,12 @@ function Corridas({
     <section id="corridas" className="px-5 py-20 md:px-10 md:py-24" style={{ background: "#101010" }}>
       <div className="mx-auto max-w-[1500px]">
         <Reveal>
-          <SectionTag n="03">Próximas corridas</SectionTag>
+          <SectionTag n="04">Próximas corridas</SectionTag>
           <SectionTitle className="mt-6 max-w-3xl">Escolha a prova que você quer receber.</SectionTitle>
           <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-white/65">
-            Corridas abertas no calendário oficial Runff. Você pode solicitar vaga na campanha de
-            conteúdo para qualquer uma delas — sujeito à aprovação do time.
+            Corridas abertas no calendário oficial Runff. Você pode divulgar qualquer uma delas com
+            seu link e cupom — e também solicitar a vaga da campanha de conteúdo, sujeita à
+            aprovação do time.
           </p>
         </Reveal>
 
@@ -912,19 +1026,19 @@ function Cadastro({ cidade, events }: { cidade: string | null; events: RunffEven
       <div className="mx-auto grid max-w-[1500px] gap-14 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <Reveal>
-            <SectionTag n="04">Cadastro</SectionTag>
+            <SectionTag n="05">Cadastro</SectionTag>
             <SectionTitle className="mt-6">
               Garanta sua vaga.{" "}
               <span style={{ color: LIME }}>A conversa continua no WhatsApp.</span>
             </SectionTitle>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-white/65">
               Leva menos de dois minutos. Depois de enviar, abrimos o WhatsApp com a mensagem pronta
-              para o time Runff validar sua vaga.
+              para o time Runff validar sua entrada.
             </p>
             <ul className="mt-8 space-y-4">
               {[
-                "Inscrição + kit completo ao cumprir as entregas",
-                "Equipe de atendimento para ideias e acompanhamento",
+                "Comissão de até 10% por inscrição vendida",
+                "Campanha: 10 conteúdos aprovados = kit completo + inscrição",
                 "Cupom de desconto opcional (composição dos seus 10%)",
               ].map((item) => (
                 <li key={item} className="flex gap-3 text-[15px] leading-relaxed text-white/70">
@@ -1218,32 +1332,32 @@ function Cadastro({ cidade, events }: { cidade: string | null; events: RunffEven
 
 const FAQ: [string, string][] = [
   [
-    "Preciso pagar alguma coisa para participar?",
-    "Não. A proposta é você receber inscrição + kit completo ao cumprir as entregas de conteúdo. Não precisa vender nada.",
+    "Como ganho comissão?",
+    "Você recebe um link próprio de divulgação e ganha até 10% por cada inscrição vendida com ele.",
   ],
   [
-    "Quantos conteúdos preciso gravar?",
-    "São 10 conteúdos validados e aprovados sobre o evento. Nossa equipe acompanha você para ajudar nas ideias.",
+    "Como funciona o cupom de desconto?",
+    "O cupom é opcional. O cálculo é baseado nos seus 10% de comissão: você escolhe como compor comissão + cupom, dentro do limite de 10% total.",
   ],
   [
-    "A vaga é garantida?",
+    "O que é a campanha dos 10 conteúdos?",
+    "Um diferencial com vagas limitadas: você escolhe uma corrida e, gravando 10 conteúdos validados e aprovados sobre o evento, recebe inscrição + kit completo de presente — sem precisar vender nada.",
+  ],
+  [
+    "A vaga da campanha é garantida?",
     "Não. As vagas são limitadas e a aprovação depende da validação da equipe de atendimento Runff.",
   ],
   [
-    "E se eu quiser comissão ou cupom?",
-    "Você pode optar por criar cupom de desconto. O cálculo é baseado nos 10% de comissão: você escolhe como dividir comissão + cupom, dentro do limite de 10% total.",
+    "Preciso pagar alguma coisa para participar?",
+    "Não. O cadastro é gratuito e a comissão é sua. Na campanha de conteúdo, o kit e a inscrição são presente.",
   ],
   [
     "Qual o papel da equipe Runff?",
-    "Uma equipe fica à disposição para auxiliar ativamente na construção de conteúdos, ideias e acompanhamento das entregas.",
+    "Uma equipe fica à disposição para auxiliar ativamente na construção de conteúdos, ideias e acompanhamento de vendas.",
   ],
   [
     "Posso escolher qualquer corrida?",
-    "Você escolhe a corrida de interesse no cadastro. A equipe valida se ainda há vaga para aquela prova.",
-  ],
-  [
-    "Como recebo o kit e a inscrição?",
-    "Após a aprovação dos 10 conteúdos, a equipe Runff libera sua inscrição e envia o kit completo de presente.",
+    "Você indica a corrida de interesse no cadastro. Para a campanha de conteúdo, a equipe valida se ainda há vaga para aquela prova.",
   ],
 ];
 
@@ -1253,7 +1367,7 @@ function Faq() {
     <section id="faq" className="px-5 py-20 md:px-10 md:py-24" style={{ background: "#101010" }}>
       <div className="mx-auto max-w-[1100px]">
         <Reveal>
-          <SectionTag n="05">Perguntas frequentes</SectionTag>
+          <SectionTag n="06">Perguntas frequentes</SectionTag>
           <SectionTitle className="mt-6">Sem pegadinha.</SectionTitle>
         </Reveal>
 
@@ -1315,7 +1429,7 @@ function Fechamento({ heroMsg }: { heroMsg: string }) {
       <div className="relative mx-auto max-w-[1500px]">
         <Reveal>
           <h2 className="max-w-4xl font-display uppercase leading-[0.9] text-[clamp(2.3rem,7vw,6rem)]">
-            Seu corre já move pessoas. Agora, corra de graça com kit completo.
+            Seu corre já move pessoas. Agora ele também pode render — e te levar pra largada de graça.
           </h2>
           <a
             href={whatsappLink(heroMsg)}
