@@ -738,7 +738,7 @@ function Corridas({
     <section id="corridas" className="px-5 py-20 md:px-10 md:py-24" style={{ background: "#101010" }}>
       <div className="mx-auto max-w-[1500px]">
         <Reveal>
-          <SectionTag n="03">Próximas corridas</SectionTag>
+          <SectionTag n="04">Próximas corridas</SectionTag>
           <SectionTitle className="mt-6 max-w-3xl">Escolha a prova que você quer receber.</SectionTitle>
           <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-white/65">
             Corridas abertas no calendário oficial Runff. Você pode solicitar vaga na campanha de
@@ -1025,7 +1025,7 @@ function Cadastro({ cidade, events }: { cidade: string | null; events: RunffEven
       <div className="mx-auto grid max-w-[1500px] gap-14 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <Reveal>
-            <SectionTag n="04">Cadastro</SectionTag>
+            <SectionTag n="05">Cadastro</SectionTag>
             <SectionTitle className="mt-6">
               Garanta sua vaga.{" "}
               <span style={{ color: LIME }}>A conversa continua no WhatsApp.</span>
@@ -1366,7 +1366,7 @@ function Faq() {
     <section id="faq" className="px-5 py-20 md:px-10 md:py-24" style={{ background: "#101010" }}>
       <div className="mx-auto max-w-[1100px]">
         <Reveal>
-          <SectionTag n="05">Perguntas frequentes</SectionTag>
+          <SectionTag n="06">Perguntas frequentes</SectionTag>
           <SectionTitle className="mt-6">Sem pegadinha.</SectionTitle>
         </Reveal>
 
