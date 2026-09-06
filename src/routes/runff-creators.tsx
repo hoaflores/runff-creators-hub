@@ -94,6 +94,46 @@ function scrollToId(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+/* CTA padrão reutilizado nas seções: WhatsApp (primário) ou scroll ao cadastro */
+function CtaWhats({
+  heroMsg,
+  label,
+  origem,
+  className = "",
+}: {
+  heroMsg: string;
+  label: string;
+  origem: string;
+  className?: string;
+}) {
+  return (
+    <a
+      href={whatsappLink(heroMsg)}
+      target="_blank"
+      rel="noopener"
+      onClick={() => track("whatsapp_open", { origem })}
+      className={`group inline-flex min-h-[52px] w-full items-center justify-center gap-2 px-7 text-[12px] font-semibold uppercase tracking-[0.18em] sm:w-auto ${className}`}
+      style={{ background: LIME, color: "#0B0B0B" }}
+    >
+      {label}
+      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+    </a>
+  );
+}
+
+function CtaCadastro({ label, className = "" }: { label: string; className?: string }) {
+  return (
+    <button
+      onClick={() => scrollToId("cadastro")}
+      className={`inline-flex min-h-[52px] w-full items-center justify-center gap-2 border px-7 text-[12px] font-semibold uppercase tracking-[0.18em] transition hover:border-white/60 sm:w-auto ${className}`}
+      style={{ borderColor: "rgba(255,255,255,0.35)" }}
+    >
+      {label}
+      <ArrowRight className="h-4 w-4" />
+    </button>
+  );
+}
+
 function daysUntil(date: string | null) {
   if (!date) return null;
   const target = new Date(`${date}T00:00:00`);
