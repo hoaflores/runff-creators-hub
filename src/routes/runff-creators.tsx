@@ -210,9 +210,10 @@ function RunffCreatorsPage() {
       <Marquee items={["CORRA", "INFLUENCIE", "GANHE", "REPITA", "RUNFF CREATORS"]} />
       <StatsBand heroMsg={heroMsg} />
       <ComoFunciona />
-      <Simulador />
-      <Recompensas />
+      <Simulador heroMsg={heroMsg} />
+      <Recompensas heroMsg={heroMsg} />
       <Corridas events={events} error={eventsError} cidade={cidade} />
+      <CtaFiller heroMsg={heroMsg} />
       <Cadastro cidade={cidade} events={events} />
       <Faq />
       <Fechamento heroMsg={heroMsg} />
