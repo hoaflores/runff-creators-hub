@@ -214,7 +214,7 @@ function RunffCreatorsPage() {
       <Recompensas heroMsg={heroMsg} />
       <Corridas events={events} error={eventsError} cidade={cidade} heroMsg={heroMsg} />
       <Cadastro cidade={cidade} events={events} />
-      <Faq />
+      <Faq heroMsg={heroMsg} />
       <Fechamento heroMsg={heroMsg} />
       <Footer />
       <StickyCta
@@ -941,13 +941,21 @@ function Corridas({
           })}
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          <button
+            onClick={() => scrollToId("cadastro")}
+            className="inline-flex min-h-[52px] items-center justify-center gap-2 px-7 text-[12px] font-semibold uppercase tracking-[0.18em]"
+            style={{ background: LIME, color: "#0B0B0B" }}
+          >
+            <Ticket className="h-4 w-4" />
+            Escolher minha corrida
+          </button>
           <a
             href="https://runff.com.br/#lista_eventos"
             target="_blank"
             rel="noopener"
-            className="inline-flex min-h-[48px] items-center gap-2 px-6 text-[11px] font-semibold uppercase tracking-[0.18em]"
-            style={{ background: LIME, color: "#0B0B0B" }}
+            className="inline-flex min-h-[52px] items-center justify-center gap-2 border px-6 text-[11px] font-semibold uppercase tracking-[0.18em] transition hover:border-white/60"
+            style={{ borderColor: LINE }}
           >
             <CalendarDays className="h-4 w-4" />
             Calendário oficial Runff
