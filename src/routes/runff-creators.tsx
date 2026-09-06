@@ -649,11 +649,11 @@ function Recompensas() {
     <section id="recompensas" className="px-5 py-20 md:px-10 md:py-24">
       <div className="mx-auto max-w-[1500px]">
         <Reveal>
-          <SectionTag n="02">O que você recebe</SectionTag>
-          <SectionTitle className="mt-6 max-w-3xl">Kit, inscrição e apoio de verdade.</SectionTitle>
+          <SectionTag n="03">O que você recebe</SectionTag>
+          <SectionTitle className="mt-6 max-w-3xl">Comissão, kit, cupom e apoio de verdade.</SectionTitle>
           <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-white/65">
-            Não é só comissão. A proposta principal é você correr de graça com o kit completo, tendo
-            uma equipe do seu lado para criar conteúdo.
+            Ganhe com suas vendas e, se quiser, participe da campanha de conteúdo para correr de
+            graça com kit completo — sempre com uma equipe do seu lado.
           </p>
         </Reveal>
 
