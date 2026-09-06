@@ -153,7 +153,7 @@ function RunffCreatorsPage() {
     track("page_view_runff_creators", { cidade: c });
   }, []);
 
-  const heroMsg = `Oi! Vi a página Runff Creators e quero garantir minha vaga na campanha de conteúdo.${
+  const heroMsg = `Oi! Vi a página Runff Creators e quero participar.${
     cidade ? ` Minha cidade é ${cidade}.` : ""
   }`;
 
