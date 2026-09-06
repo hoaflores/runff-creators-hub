@@ -264,13 +264,13 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <a
               href={whatsappLink(heroMsg)}
               target="_blank"
               rel="noopener"
               onClick={() => track("whatsapp_open", { origem: "header" })}
-              className="hidden min-h-[44px] items-center gap-2 px-5 text-[11px] font-semibold uppercase tracking-[0.16em] sm:inline-flex"
+              className="inline-flex min-h-[40px] items-center gap-2 px-3.5 text-[10px] font-semibold uppercase tracking-[0.14em] sm:min-h-[44px] sm:px-5 sm:text-[11px] sm:tracking-[0.16em]"
               style={{ background: LIME, color: "#0B0B0B" }}
             >
               Garantir vaga
