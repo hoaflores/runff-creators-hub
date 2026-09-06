@@ -293,7 +293,7 @@ function Hero({
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "16%"]);
   const fade = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
 
-  const lines = ["NUNCA MAIS", "PAGUE", "PARA CORRER!"];
+  const lines = ["NUNCA MAIS", "PAGUE PARA", "CORRER!"];
 
   return (
     <section
@@ -415,7 +415,7 @@ function StatsBand() {
   const stats = [
     { value: <Counter to={10} suffix="%" />, label: "de comissão por inscrição" },
     { value: "Cupom", label: "de desconto opcional" },
-    { value: "Kit", label: "completo + inscrição na campanha" },
+    { value: "Kit", label: "COMPLETO + INSCRIÇÃO NA CORRIDA" },
     { value: "Equipe", label: "ativa no seu conteúdo" },
   ];
 
@@ -503,7 +503,7 @@ function ComoFunciona() {
                 <p className="mt-3 max-w-3xl text-[14px] leading-relaxed text-white/65">
                   Escolha uma corrida Runff e, cumprindo 10 conteúdos validados e aprovados sobre o
                   evento, você recebe inscrição + kit completo de presente, sem precisar vender nada.
-                  Não é automático: a vaga é validada com nossa equipe de atendimento.
+                  {"\n"}Atenção! Não é automático: a vaga é validada com nossa equipe de atendimento.
                 </p>
               </div>
               <button
@@ -535,7 +535,7 @@ function Simulador() {
           <SectionTag n="02">Quanto você pode ganhar</SectionTag>
           <SectionTitle className="mt-6">Faça as contas da sua audiência.</SectionTitle>
           <p className="mt-6 max-w-md text-[15px] leading-relaxed text-white/65">
-            Arraste e veja uma estimativa. O valor é uma simulação com 10% de comissão — os ganhos
+            Arraste e veja uma estimativa. O valor é uma simulação com 10% de comissão, os ganhos
             reais dependem das suas vendas e de como você compõe comissão + cupom.*
           </p>
         </Reveal>
@@ -732,8 +732,8 @@ function Corridas({
           <SectionTag n="04">Próximas corridas</SectionTag>
           <SectionTitle className="mt-6 max-w-3xl">Escolha a prova que você quer receber.</SectionTitle>
           <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-white/65">
-            Corridas abertas no calendário oficial Runff. Você pode divulgar qualquer uma delas com
-            seu link e cupom — e também solicitar a vaga da campanha de conteúdo, sujeita à
+             Corridas abertas no calendário oficial Runff. Você pode divulgar qualquer uma delas com
+             seu link e cupom e também solicitar a vaga da campanha de conteúdo, sujeita à
             aprovação do time.
           </p>
         </Reveal>
