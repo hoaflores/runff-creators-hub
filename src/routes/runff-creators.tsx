@@ -159,13 +159,6 @@ function RunffCreatorsPage() {
 
   return (
     <div className="min-h-screen bg-[#0B0B0B] text-white antialiased">
-      <style>{`
-        @keyframes runff-marquee { from { transform: translateX(0) } to { transform: translateX(-33.333%) } }
-        @keyframes runff-marquee-rev { from { transform: translateX(-33.333%) } to { transform: translateX(0) } }
-        .font-display { font-family: 'Barlow Condensed', 'Inter', sans-serif; font-weight: 700; }
-        .runff-scroll::-webkit-scrollbar { height: 6px }
-        .runff-scroll::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 99px }
-      `}</style>
 
       <motion.div
         className="fixed left-0 top-0 z-[60] h-[3px] origin-left"
