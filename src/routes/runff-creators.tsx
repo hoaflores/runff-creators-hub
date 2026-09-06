@@ -1473,6 +1473,13 @@ function Faq({ heroMsg }: { heroMsg: string }) {
             </div>
           ))}
         </div>
+
+        <Reveal delay={0.1}>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <CtaWhats heroMsg={heroMsg} label="Falar com a equipe" origem="faq" />
+            <CtaCadastro label="Garantir minha vaga" />
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -1523,7 +1530,7 @@ function Footer() {
   return (
     <>
       <Marquee items={["RUN FAST", "RUN FORWARD", "RUNFF CREATORS"]} reverse dark />
-      <footer className="border-t px-5 py-10 md:px-10" style={{ borderColor: "#1D1D1D" }}>
+      <footer className="border-t px-5 pb-28 pt-10 md:px-10 lg:py-10" style={{ borderColor: "#1D1D1D" }}>
         <div className="mx-auto flex max-w-[1500px] flex-col gap-4 text-[12px] text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <p>Runff Creators · Programa de parceiros regionais da Runff.</p>
           <p>
