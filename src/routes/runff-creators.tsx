@@ -615,28 +615,28 @@ function Simulador() {
 
 const TRILHA = [
   {
+    icon: Coins,
+    marco: "Comissão",
+    premio: "Até 10% por inscrição",
+    detalhe: "Cada venda com seu link rende comissão, paga de forma recorrente.",
+  },
+  {
     icon: Gift,
-    marco: "Conteúdos aprovados",
+    marco: "Campanha de conteúdo",
     premio: "Inscrição + kit completo",
-    detalhe: "Cumpra os 10 conteúdos validados sobre o evento e receba inscrição + kit de presente.",
+    detalhe: "Grave 10 conteúdos aprovados sobre o evento e corra de graça, sem precisar vender.",
+  },
+  {
+    icon: Ticket,
+    marco: "Cupom opcional",
+    premio: "Desconto para sua base",
+    detalhe: "Você escolhe se cria cupom. A composição sai dos seus 10% de comissão.",
   },
   {
     icon: Users,
     marco: "Equipe à disposição",
-    premio: "Apoio ativo de conteúdo",
-    detalhe: "Nossa equipe ajuda com ideias, construção de conteúdos e acompanhamento de entregas.",
-  },
-  {
-    icon: Ticket,
-    marco: "Quer ir além?",
-    premio: "Comissão + cupom",
-    detalhe: "Você pode optar por criar cupom de desconto. A composição sai dos seus 10% de comissão.",
-  },
-  {
-    icon: BadgeCheck,
-    marco: "Destaque consistente",
-    premio: "Seleção Runff",
-    detalhe: "Creators com entregas consistentes podem ser convidados para ciclos especiais com a Runff.",
+    premio: "Apoio ativo de verdade",
+    detalhe: "Ideias, construção de conteúdos e acompanhamento de vendas com o time Runff.",
   },
 ];
 
