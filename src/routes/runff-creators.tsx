@@ -212,8 +212,7 @@ function RunffCreatorsPage() {
       <ComoFunciona />
       <Simulador heroMsg={heroMsg} />
       <Recompensas heroMsg={heroMsg} />
-      <Corridas events={events} error={eventsError} cidade={cidade} />
-      <CtaFiller heroMsg={heroMsg} />
+      <Corridas events={events} error={eventsError} cidade={cidade} heroMsg={heroMsg} />
       <Cadastro cidade={cidade} events={events} />
       <Faq />
       <Fechamento heroMsg={heroMsg} />
@@ -583,7 +582,7 @@ function ComoFunciona() {
 
 /* ------------------------------------------------------------- simulador */
 
-function Simulador() {
+function Simulador({ heroMsg }: { heroMsg: string }) {
   const [ticket, setTicket] = useState(120);
   const [vendas, setVendas] = useState(40);
   const ganho = ticket * 0.1 * vendas;
