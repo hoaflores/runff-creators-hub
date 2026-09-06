@@ -655,6 +655,10 @@ function Simulador({ heroMsg }: { heroMsg: string }) {
               </p>
             </div>
           </div>
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+            <CtaWhats heroMsg={heroMsg} label="Quero ganhar com isso" origem="simulador" />
+            <CtaCadastro label="Fazer meu cadastro" />
+          </div>
         </Reveal>
       </div>
     </section>
@@ -690,7 +694,7 @@ const TRILHA = [
   },
 ];
 
-function Recompensas() {
+function Recompensas({ heroMsg }: { heroMsg: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 70%", "end 60%"] });
   const line = useSpring(scrollYProgress, { stiffness: 90, damping: 24, mass: 0.4 });
