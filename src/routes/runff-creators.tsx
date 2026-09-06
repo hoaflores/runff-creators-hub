@@ -462,7 +462,7 @@ function Hero({
 
 /* ------------------------------------------------------------- statsband */
 
-function StatsBand() {
+function StatsBand({ heroMsg }: { heroMsg: string }) {
   const stats = [
     { value: <Counter to={10} suffix="%" />, label: "de comissão por inscrição" },
     { value: "Cupom", label: "de desconto opcional" },
@@ -472,15 +472,23 @@ function StatsBand() {
 
   return (
     <section className="border-b px-5 py-12 md:px-10" style={{ borderColor: LINE }}>
-      <div className="mx-auto grid max-w-[1500px] gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        {stats.map((stat, i) => (
-          <Reveal key={i} delay={i * 0.06}>
-            <p className="font-display leading-none text-[clamp(2.4rem,6vw,4rem)]" style={{ color: LIME }}>
-              {stat.value}
-            </p>
-            <p className="mt-2 text-[13px] uppercase tracking-[0.14em] text-white/45">{stat.label}</p>
-          </Reveal>
-        ))}
+      <div className="mx-auto max-w-[1500px]">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((stat, i) => (
+            <Reveal key={i} delay={i * 0.06}>
+              <p className="font-display leading-none text-[clamp(2.2rem,10vw,4rem)]" style={{ color: LIME }}>
+                {stat.value}
+              </p>
+              <p className="mt-2 text-[13px] uppercase tracking-[0.14em] text-white/45">{stat.label}</p>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={0.15}>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <CtaWhats heroMsg={heroMsg} label="Quero participar agora" origem="stats" />
+            <CtaCadastro label="Fazer meu cadastro" />
+          </div>
+        </Reveal>
       </div>
     </section>
   );
