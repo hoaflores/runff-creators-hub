@@ -169,7 +169,7 @@ function Hero() {
             <span className="h-2.5 w-2.5 bg-runff-lime" /> Programa oficial de creators
           </p>
           <h1 className="max-w-4xl font-display text-[clamp(4.4rem,10vw,9rem)] uppercase leading-[0.82] tracking-normal">
-            Corra.<br />Crie.<br /><span className="text-runff-lime [text-shadow:1px_1px_0_var(--runff-ink),-1px_-1px_0_var(--runff-ink)]">Ganhe.</span>
+            NUNCA MAIS PAGUE PARA<br /><span className="text-runff-lime [text-shadow:1px_1px_0_var(--runff-ink),-1px_-1px_0_var(--runff-ink)]">CORRER!</span>
           </h1>
           <p className="mt-8 max-w-lg text-lg leading-relaxed text-runff-ink/65 md:text-xl">
             Transforme sua influência em comissão, experiências e novas linhas de chegada.
