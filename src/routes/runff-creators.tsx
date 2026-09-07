@@ -447,28 +447,6 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
           </p>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.65 }}
-          className="hidden w-full max-w-md justify-self-end border p-6 backdrop-blur-sm lg:block"
-          style={{ borderColor: LIME, background: "rgba(11,11,11,0.72)" }}
-        >
-          <p className="text-[11px] font-semibold uppercase tracking-[0.2em]" style={{ color: LIME }}>
-            Em três passos
-          </p>
-          <ul className="mt-5 space-y-4">
-            {["Cadastre-se", "Divulgue com seu link", "Ganhe — ou corra de graça"].map((item) => (
-              <li key={item} className="flex gap-3 font-display text-[20px] uppercase leading-tight text-white/85">
-                <Check className="mt-1 h-4 w-4 shrink-0" style={{ color: LIME }} />
-                {item}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-5 text-[11px] leading-relaxed text-white/40">
-            Cupom opcional: comissão + cupom, no máximo 10%.
-          </p>
-        </motion.div>
       </motion.div>
 
 
