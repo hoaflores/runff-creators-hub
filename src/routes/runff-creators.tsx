@@ -1002,7 +1002,7 @@ function Cadastro({ cidade, events }: { cidade: string | null; events: RunffEven
       started.current = true;
       track("form_start");
     }
-    setForm((prev) => ({ ...prev, [key]: value }));
+    setForm((prev) => ({ ...prev, [key]: key === "whatsapp" ? maskPhone(value) : value }));
   }
 
   function next() {
