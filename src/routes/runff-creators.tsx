@@ -43,7 +43,7 @@ export const Route = createFileRoute("/runff-creators")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/runff-creators" },
+      { property: "og:url", content: `${SITE}/runff-creators` },
       { property: "og:image", content: OG_IMAGE },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
@@ -54,7 +54,7 @@ export const Route = createFileRoute("/runff-creators")({
       { name: "twitter:description", content: DESCRIPTION },
       { name: "twitter:image", content: OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/runff-creators" }],
+    links: [{ rel: "canonical", href: `${SITE}/runff-creators` }],
     scripts: [
       {
         type: "application/ld+json",
@@ -206,7 +206,7 @@ function RunffCreatorsPage() {
       />
 
       <Header scrolled={scrolled} heroMsg={heroMsg} />
-      <Hero cidade={cidade} heroMsg={heroMsg} eventCount={events?.length ?? null} />
+      <Hero cidade={cidade} heroMsg={heroMsg} />
       <Marquee items={["CORRA", "INFLUENCIE", "GANHE", "REPITA", "RUNFF CREATORS"]} />
       <StatsBand heroMsg={heroMsg} />
       <ComoFunciona />
@@ -330,15 +330,7 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
 
 /* ------------------------------------------------------------------ hero */
 
-function Hero({
-  cidade,
-  heroMsg,
-  eventCount,
-}: {
-  cidade: string | null;
-  heroMsg: string;
-  eventCount: number | null;
-}) {
+function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "16%"]);
