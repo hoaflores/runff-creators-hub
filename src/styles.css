@@ -59,6 +59,12 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-runff-ink: var(--runff-ink);
+  --color-runff-paper: var(--runff-paper);
+  --color-runff-soft: var(--runff-soft);
+  --color-runff-line: var(--runff-line);
+  --color-runff-lime: var(--runff-lime);
+  --color-runff-danger: var(--runff-danger);
 }
 
 :root {
@@ -95,6 +101,12 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  --runff-ink: oklch(0.15 0 0);
+  --runff-paper: oklch(0.985 0.004 105);
+  --runff-soft: oklch(0.94 0.004 105);
+  --runff-line: oklch(0.84 0.004 105);
+  --runff-lime: oklch(0.92 0.21 122);
+  --runff-danger: oklch(0.62 0.22 25);
 }
 
 .dark {
