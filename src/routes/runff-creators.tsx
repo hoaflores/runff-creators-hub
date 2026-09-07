@@ -392,7 +392,7 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
             style={{ borderColor: LIME, color: LIME }}
           >
             <Sparkles className="h-3 w-3" />
-            Comissão de até 10% · Campanha de kit completo com vagas limitadas
+            Runff Creators · Vagas limitadas
           </motion.div>
 
           <h1 className="mt-6 font-display uppercase leading-[0.88] tracking-[-0.015em] text-[clamp(2.5rem,8vw,6.5rem)]">
@@ -415,10 +415,10 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="mt-6 max-w-lg text-[15px] leading-relaxed text-white/70 md:text-[16px]"
+            className="mt-6 max-w-lg font-display uppercase leading-[1.05] text-[clamp(1.2rem,2.4vw,1.7rem)] text-white/80"
           >
-            Divulgue as corridas Runff e ganhe <strong>até 10% por inscrição</strong>. E tem mais: você ainda pode escolher uma prova e conquistar{" "}
-            <strong>inscrição + kit completo</strong> gravando 10 conteúdos aprovados.
+            Ganhe <strong style={{ color: LIME }}>até 10% por inscrição</strong> — ou corra de graça, com{" "}
+            <strong style={{ color: LIME }}>kit completo</strong>.
           </motion.p>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -442,9 +442,8 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
             </button>
           </div>
 
-          <p className="mt-6 text-[13px] text-white/45">
-            Aprovação sujeita à validação da equipe Runff. Vagas limitadas por corrida.
-            {cidade ? ` Corridas perto de ${cidade}.` : ""}
+          <p className="mt-6 text-[12px] uppercase tracking-[0.18em] text-white/45">
+            Vagas limitadas{cidade ? ` · Corridas perto de ${cidade}` : ""}
           </p>
         </div>
 
@@ -456,24 +455,18 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
           style={{ borderColor: LIME, background: "rgba(11,11,11,0.72)" }}
         >
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em]" style={{ color: LIME }}>
-            Como funciona na prática
+            Em três passos
           </p>
           <ul className="mt-5 space-y-4">
-            {[
-              "Cadastre-se e receba seu link exclusivo",
-              "Escolha se quer criar um cupom de desconto",
-              "Ganhe até 10% por inscrição vendida",
-              "Grave 10 conteúdos aprovados e corra de graça com kit completo",
-            ].map((item) => (
-              <li key={item} className="flex gap-3 text-[14px] leading-relaxed text-white/75">
-                <Check className="mt-0.5 h-4 w-4 shrink-0" style={{ color: LIME }} />
+            {["Cadastre-se", "Divulgue com seu link", "Ganhe — ou corra de graça"].map((item) => (
+              <li key={item} className="flex gap-3 font-display text-[20px] uppercase leading-tight text-white/85">
+                <Check className="mt-1 h-4 w-4 shrink-0" style={{ color: LIME }} />
                 {item}
               </li>
             ))}
           </ul>
           <p className="mt-5 text-[11px] leading-relaxed text-white/40">
-            O cálculo do cupom é baseado nos 10% de comissão do influencer: você escolhe como compor
-            comissão + cupom, no limite de 10% no total.
+            Cupom opcional: comissão + cupom, no máximo 10%.
           </p>
         </motion.div>
       </motion.div>
@@ -532,22 +525,22 @@ const PASSOS = [
   {
     icon: Users,
     t: "Cadastre-se",
-    d: "Preencha o formulário e nosso time de atendimento valida sua entrada pelo WhatsApp.",
+    d: "Dois minutos. O time valida sua entrada no WhatsApp.",
   },
   {
     icon: Ticket,
-    t: "Receba seu link e cupom",
-    d: "Você recebe link próprio de divulgação e escolhe se quer criar um cupom de desconto.",
+    t: "Receba seu link",
+    d: "Link próprio de divulgação. Cupom de desconto, se você quiser.",
   },
   {
     icon: Sparkles,
     t: "Divulgue com apoio",
-    d: "Uma equipe à disposição para auxiliar ativamente: ideias, construção de conteúdos e acompanhamento de vendas.",
+    d: "Uma equipe ao seu lado: ideias, conteúdo e vendas.",
   },
   {
     icon: Coins,
     t: "Ganhe comissão",
-    d: "Até 10% por inscrição vendida, com pagamento recorrente enquanto suas vendas saírem.",
+    d: "Até 10% por inscrição. Todo mês.",
   },
 ];
 
@@ -558,7 +551,7 @@ function ComoFunciona() {
         <Reveal>
           <SectionTag n="01">Como funciona</SectionTag>
           <SectionTitle className="mt-6 max-w-3xl">
-            Quatro passos do cadastro à comissão.
+            Do cadastro à comissão em quatro passos.
           </SectionTitle>
         </Reveal>
 
@@ -589,12 +582,10 @@ function ComoFunciona() {
                   Diferencial da campanha · Vagas limitadas
                 </p>
                 <h3 className="mt-2 font-display text-[28px] uppercase leading-tight md:text-[34px]">
-                  Grave 10 conteúdos aprovados e corra de graça com kit completo
+                  10 conteúdos aprovados = corrida de graça, com kit completo
                 </h3>
                 <p className="mt-3 max-w-3xl text-[14px] leading-relaxed text-white/65">
-                  Escolha uma corrida Runff e, cumprindo 10 conteúdos validados e aprovados sobre o
-                  evento, você recebe inscrição + kit completo de presente, sem precisar vender nada.
-                  {"\n"}Atenção! Não é automático: a vaga é validada com nossa equipe de atendimento.
+                  Sem vender nada. Vagas limitadas, validadas com o time Runff.
                 </p>
               </div>
               <button
@@ -624,10 +615,9 @@ function Simulador({ heroMsg }: { heroMsg: string }) {
       <div className="mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-2 lg:items-center">
         <Reveal>
           <SectionTag n="02">Quanto você pode ganhar</SectionTag>
-          <SectionTitle className="mt-6">Faça as contas da sua audiência.</SectionTitle>
+          <SectionTitle className="mt-6">Quanto vale a sua audiência?</SectionTitle>
           <p className="mt-6 max-w-md text-[15px] leading-relaxed text-white/65">
-            Arraste e veja uma estimativa. O valor é uma simulação com 10% de comissão, os ganhos
-            reais dependem das suas vendas e de como você compõe comissão + cupom.*
+            Arraste e descubra.*
           </p>
         </Reveal>
 
@@ -681,9 +671,7 @@ function Simulador({ heroMsg }: { heroMsg: string }) {
                 {ganho.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 })}
               </p>
               <p className="mt-3 text-[12px] leading-relaxed text-white/40">
-                * Simulação com comissão de 10%. O cupom de desconto é opcional e seu cálculo é
-                baseado nos seus 10% de comissão: você escolhe como compor comissão + cupom, dentro
-                do limite de 10% total.
+                * Simulação com 10% de comissão. Cupom opcional: comissão + cupom, no máximo 10%.
               </p>
             </div>
           </div>
@@ -704,25 +692,25 @@ const TRILHA = [
     icon: Coins,
     marco: "Comissão",
     premio: "Até 10% por inscrição",
-    detalhe: "Cada venda com seu link rende comissão, paga de forma recorrente.",
+    detalhe: "Toda venda com seu link rende. Todo mês.",
   },
   {
     icon: Gift,
     marco: "Campanha de conteúdo",
     premio: "Inscrição + kit completo",
-    detalhe: "Grave 10 conteúdos aprovados sobre o evento e corra de graça, sem precisar vender.",
+    detalhe: "10 conteúdos aprovados e você corre de graça.",
   },
   {
     icon: Ticket,
     marco: "Cupom opcional",
     premio: "Desconto para sua base",
-    detalhe: "Você escolhe se cria cupom. A composição sai dos seus 10% de comissão.",
+    detalhe: "Se você quiser. Sai dos seus 10%.",
   },
   {
     icon: Users,
     marco: "Equipe à disposição",
-    premio: "Apoio ativo de verdade",
-    detalhe: "Ideias, construção de conteúdos e acompanhamento de vendas com o time Runff.",
+    premio: "Apoio de verdade",
+    detalhe: "Ideias, conteúdo e vendas com o time Runff.",
   },
 ];
 
@@ -736,10 +724,9 @@ function Recompensas({ heroMsg }: { heroMsg: string }) {
       <div className="mx-auto max-w-[1500px]">
         <Reveal>
           <SectionTag n="03">O que você recebe</SectionTag>
-          <SectionTitle className="mt-6 max-w-3xl">Comissão, kit, cupom e apoio de verdade.</SectionTitle>
+          <SectionTitle className="mt-6 max-w-3xl">O que está em jogo.</SectionTitle>
           <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-white/65">
-             Ganhe com suas vendas e, se quiser, participe da campanha de conteúdo para correr de
-             graça com kit completo, sempre com uma equipe do seu lado.
+            Ganhe com suas vendas. Ou corra de graça. Ou os dois.
           </p>
         </Reveal>
 
@@ -771,9 +758,8 @@ function Recompensas({ heroMsg }: { heroMsg: string }) {
         </div>
 
         <p className="mt-8 max-w-3xl text-[13px] leading-relaxed text-white/40">
-          * Cupom de desconto é opcional. O cálculo do cupom é baseado nos 10% de comissão do
-          influencer: você escolhe como compor sua comissão + o cupom, dentro do limite de 10% total.
-          Vagas limitadas e aprovação sujeita à validação da equipe.
+          * Cupom opcional: comissão + cupom, no máximo 10%. Vagas limitadas, sujeitas à validação
+          da equipe.
         </p>
 
         <Reveal delay={0.1}>
@@ -834,11 +820,9 @@ function Corridas({
       <div className="mx-auto max-w-[1500px]">
         <Reveal>
           <SectionTag n="04">Próximas corridas</SectionTag>
-          <SectionTitle className="mt-6 max-w-3xl">Escolha a prova que você quer receber.</SectionTitle>
+          <SectionTitle className="mt-6 max-w-3xl">Qual prova você quer ganhar?</SectionTitle>
           <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-white/65">
-             Corridas abertas no calendário oficial Runff. Você pode divulgar qualquer uma delas com
-             seu link e cupom e também solicitar a vaga da campanha de conteúdo, sujeita à
-            aprovação do time.
+            Escolha a sua. Vagas sujeitas à aprovação do time.
           </p>
         </Reveal>
 
@@ -1132,17 +1116,16 @@ function Cadastro({ cidade, events }: { cidade: string | null; events: RunffEven
             <SectionTag n="05">Cadastro</SectionTag>
             <SectionTitle className="mt-6">
               Garanta sua vaga.{" "}
-              <span style={{ color: LIME }}>A conversa continua no WhatsApp.</span>
+              <span style={{ color: LIME }}>Dois minutos.</span>
             </SectionTitle>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-white/65">
-              Leva menos de dois minutos. Depois de enviar, abrimos o WhatsApp com a mensagem pronta
-              para o time Runff validar sua entrada.
+              Depois abrimos o WhatsApp com tudo pronto.
             </p>
             <ul className="mt-8 space-y-4">
               {[
-                "Comissão de até 10% por inscrição vendida",
-                "Campanha: 10 conteúdos aprovados = kit completo + inscrição",
-                "Cupom de desconto opcional (composição dos seus 10%)",
+                "Até 10% por inscrição",
+                "10 conteúdos aprovados = kit + inscrição",
+                "Cupom de desconto, se você quiser",
               ].map((item) => (
                 <li key={item} className="flex gap-3 text-[15px] leading-relaxed text-white/70">
                   <Check className="mt-1 h-4 w-4 shrink-0" style={{ color: LIME }} />
@@ -1543,7 +1526,7 @@ function Fechamento({ heroMsg }: { heroMsg: string }) {
       <div className="relative mx-auto max-w-[1500px]">
         <Reveal>
           <h2 className="max-w-4xl font-display uppercase leading-[0.9] text-[clamp(2.3rem,7vw,6rem)]">
-            SEU CORRE JÁ MOVE PESSOAS. AGORA ELE TAMBÉM PODE RENDER E TE LEVAR PRA LARGADA DE GRAÇA.
+            SEU CORRE MOVE PESSOAS. <span style={{ color: LIME }}>HORA DE RENDER.</span>
           </h2>
           <a
             href={whatsappLink(heroMsg)}
