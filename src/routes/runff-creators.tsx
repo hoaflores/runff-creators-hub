@@ -350,7 +350,7 @@ function Hero({
     <section
       id="topo"
       ref={ref}
-      className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden pb-10 pt-28"
+      className="relative flex min-h-[100svh] flex-col justify-start overflow-hidden pb-10 pt-28 md:pt-32"
     >
       <motion.div className="absolute inset-0" style={{ y }}>
         <video
