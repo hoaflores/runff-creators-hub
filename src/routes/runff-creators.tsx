@@ -502,7 +502,7 @@ function ComoFunciona() {
             <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/45">
-                  Diferencial da campanha · Vagas limitadas
+                  GERE CONTEÚDOS PARA REDES SOCIAIS E CORRA SEM CUSTOS!
                 </p>
                 <h3 className="mt-1.5 font-display text-[22px] uppercase leading-tight md:text-[28px]">
                   10 conteúdos aprovados = corrida de graça, com kit completo
