@@ -9,14 +9,12 @@ import {
   Check,
   ChevronDown,
   Coins,
-  
   MapPin,
   Minus,
   Plus,
   Sparkles,
   Ticket,
   Users,
-  Video,
 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
