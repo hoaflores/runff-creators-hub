@@ -9,7 +9,7 @@ import {
   Check,
   ChevronDown,
   Coins,
-  Gift,
+  
   MapPin,
   Minus,
   Plus,
@@ -75,7 +75,7 @@ export const Route = createFileRoute("/runff-creators")({
 const NAV = [
   { id: "como-funciona", label: "Como funciona" },
   { id: "ganhos", label: "Ganhos" },
-  { id: "recompensas", label: "Benefícios" },
+  
   { id: "corridas", label: "Corridas" },
   { id: "faq", label: "FAQ" },
 ];
@@ -84,7 +84,7 @@ const STICKY_LABEL: Record<string, string> = {
   topo: "Quero participar",
   "como-funciona": "Quero participar",
   ganhos: "Quero ganhar com isso",
-  recompensas: "Quero esses benefícios",
+  
   corridas: "Escolher minha corrida",
   cadastro: "Garantir minha vaga",
   faq: "Ainda tenho dúvidas",
@@ -178,7 +178,7 @@ function RunffCreatorsPage() {
   }, []);
 
   useEffect(() => {
-    const ids = ["topo", "como-funciona", "ganhos", "recompensas", "corridas", "cadastro", "faq"];
+    const ids = ["topo", "como-funciona", "ganhos", "corridas", "cadastro", "faq"];
     const observer = new IntersectionObserver(
       (entries) => {
         const best = entries
