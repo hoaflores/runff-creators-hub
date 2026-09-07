@@ -1015,8 +1015,8 @@ function Cadastro({ cidade, events }: { cidade: string | null; events: RunffEven
   }
 
   function next() {
-    if (step === 1 && (form.name.trim().length < 2 || form.whatsapp.trim().length < 8)) {
-      setError("Preencha nome e WhatsApp para continuar.");
+    if (step === 1 && (form.name.trim().length < 2 || form.whatsapp.replace(/\D/g, "").length < 10)) {
+      setError("Preencha nome e WhatsApp (com DDD) para continuar.");
       return;
     }
     if (
@@ -1158,6 +1158,8 @@ function Cadastro({ cidade, events }: { cidade: string | null; events: RunffEven
                         </label>
                         <input
                           id="f-nome"
+                          autoComplete="name"
+                          placeholder="Seu nome"
                           value={form.name}
                           onChange={(e) => update("name", e.target.value)}
                           className={inputClass}
@@ -1170,6 +1172,8 @@ function Cadastro({ cidade, events }: { cidade: string | null; events: RunffEven
                         </label>
                         <input
                           id="f-wpp"
+                          autoComplete="tel"
+                          maxLength={16}
                           inputMode="tel"
                           placeholder="(00) 00000-0000"
                           value={form.whatsapp}
