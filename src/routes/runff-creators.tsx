@@ -447,7 +447,37 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
             {cidade ? ` Corridas perto de ${cidade}.` : ""}
           </p>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.65 }}
+          className="hidden w-full max-w-md justify-self-end border p-6 backdrop-blur-sm lg:block"
+          style={{ borderColor: LIME, background: "rgba(11,11,11,0.72)" }}
+        >
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em]" style={{ color: LIME }}>
+            Como funciona na prática
+          </p>
+          <ul className="mt-5 space-y-4">
+            {[
+              "Cadastre-se e receba seu link exclusivo",
+              "Escolha se quer criar um cupom de desconto",
+              "Ganhe até 10% por inscrição vendida",
+              "Grave 10 conteúdos aprovados e corra de graça com kit completo",
+            ].map((item) => (
+              <li key={item} className="flex gap-3 text-[14px] leading-relaxed text-white/75">
+                <Check className="mt-0.5 h-4 w-4 shrink-0" style={{ color: LIME }} />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 text-[11px] leading-relaxed text-white/40">
+            O cálculo do cupom é baseado nos 10% de comissão do influencer: você escolhe como compor
+            comissão + cupom, no limite de 10% no total.
+          </p>
+        </motion.div>
       </motion.div>
+
 
       <div className="pointer-events-none absolute bottom-4 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex">
         <span className="text-[10px] uppercase tracking-[0.3em] text-white/40">Role</span>
