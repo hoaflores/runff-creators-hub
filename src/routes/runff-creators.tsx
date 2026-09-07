@@ -72,13 +72,6 @@ export const Route = createFileRoute("/runff-creators")({
   component: RunffCreatorsPage,
 });
 
-const NAV = [
-  { id: "como-funciona", label: "Como funciona" },
-  { id: "ganhos", label: "Ganhos" },
-  
-  { id: "corridas", label: "Corridas" },
-  { id: "faq", label: "FAQ" },
-];
 
 const STICKY_LABEL: Record<string, string> = {
   topo: "Quero participar",
@@ -261,17 +254,6 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
             </span>
           </button>
 
-          <nav className="hidden items-center gap-7 lg:flex">
-            {NAV.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToId(item.id)}
-                className="text-[12px] uppercase tracking-[0.16em] text-white/60 transition hover:text-white"
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
 
           <div className="flex items-center gap-2 sm:gap-3">
             <a
@@ -305,18 +287,6 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
               style={{ borderColor: LINE, background: "#0B0B0B" }}
             >
               <div className="flex flex-col px-5 py-3">
-                {NAV.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => {
-                      setOpen(false);
-                      scrollToId(item.id);
-                    }}
-                    className="py-3 text-left font-display text-xl uppercase"
-                  >
-                    {item.label}
-                  </button>
-                ))}
                 <button
                   onClick={() => {
                     setOpen(false);
