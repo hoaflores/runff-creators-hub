@@ -500,23 +500,19 @@ function ComoFunciona() {
         </div>
 
         <Reveal delay={0.1}>
-          <div className="mt-10 border p-7 md:p-9" style={{ borderColor: LIME, background: "#0D1206" }}>
-            <div className="grid items-center gap-6 lg:grid-cols-[auto_1fr_auto]">
-              <Video className="h-9 w-9" style={{ color: LIME }} />
+          <div className="mt-10 border p-6 md:p-8" style={{ borderColor: LINE, background: "#0E0E0E" }}>
+            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.22em]" style={{ color: LIME }}>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/45">
                   Diferencial da campanha · Vagas limitadas
                 </p>
-                <h3 className="mt-2 font-display text-[28px] uppercase leading-tight md:text-[34px]">
+                <h3 className="mt-1.5 font-display text-[22px] uppercase leading-tight md:text-[28px]">
                   10 conteúdos aprovados = corrida de graça, com kit completo
                 </h3>
-                <p className="mt-3 max-w-3xl text-[14px] leading-relaxed text-white/65">
-                  Sem vender nada. Vagas limitadas, validadas com o time Runff.
-                </p>
               </div>
               <button
                 onClick={() => scrollToId("cadastro")}
-                className="inline-flex min-h-[52px] items-center justify-center gap-2 px-7 text-[12px] font-semibold uppercase tracking-[0.18em]"
+                className="inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 px-6 text-[11px] font-semibold uppercase tracking-[0.18em] transition hover:opacity-90"
                 style={{ background: LIME, color: "#0B0B0B" }}
               >
                 Quero essa vaga <ArrowRight className="h-4 w-4" />
