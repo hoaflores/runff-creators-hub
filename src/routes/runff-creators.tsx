@@ -354,7 +354,8 @@ function Hero({
     >
       <motion.div className="absolute inset-0" style={{ y }}>
         <video
-          className="h-[116%] w-full object-cover"
+          className="h-[135%] w-full object-cover"
+          style={{ objectPosition: "center 18%" }}
           src={heroLoop.url}
           poster={heroPoster.url}
           autoPlay
