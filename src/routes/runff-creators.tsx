@@ -377,7 +377,7 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
             transition={{ delay: 0.5 }}
             className="mt-6 max-w-lg font-display uppercase leading-[1.05] text-[clamp(1.2rem,2.4vw,1.7rem)] text-white/80"
           >
-            GANHE ATÉ 10% POR INSCRIÇÃO, RECEBA INSCRIÇÕES PREMIUM E MUITO MAIS!
+            CORRA SEM CUSTOS, GANHE EQUIPAMENTOS, RECEBA KITS DAS CORRIDAS E AINDA GANHE COMISSOES PARA ISSO!
           </motion.p>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
