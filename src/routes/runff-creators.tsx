@@ -72,13 +72,6 @@ export const Route = createFileRoute("/runff-creators")({
   component: RunffCreatorsPage,
 });
 
-const NAV = [
-  { id: "como-funciona", label: "Como funciona" },
-  { id: "ganhos", label: "Ganhos" },
-  
-  { id: "corridas", label: "Corridas" },
-  { id: "faq", label: "FAQ" },
-];
 
 const STICKY_LABEL: Record<string, string> = {
   topo: "Quero participar",
