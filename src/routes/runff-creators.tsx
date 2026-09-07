@@ -1504,7 +1504,7 @@ function Fechamento({ heroMsg }: { heroMsg: string }) {
       <div className="relative mx-auto max-w-[1500px]">
         <Reveal>
           <h2 className="max-w-4xl font-display uppercase leading-[0.9] text-[clamp(2.3rem,7vw,6rem)]">
-            SEU CORRE MOVE PESSOAS. <span style={{ color: LIME }}>HORA DE RENDER.</span>
+            SEU CORRE MOVE PESSOAS. <span style={{ color: LIME }}>HORA DE LUCRAR COM ISSO.</span>
           </h2>
           <a
             href={whatsappLink(heroMsg)}
