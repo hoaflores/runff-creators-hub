@@ -9,7 +9,7 @@ import {
   Check,
   ChevronDown,
   Coins,
-  Gift,
+  
   MapPin,
   Minus,
   Plus,
@@ -75,7 +75,7 @@ export const Route = createFileRoute("/runff-creators")({
 const NAV = [
   { id: "como-funciona", label: "Como funciona" },
   { id: "ganhos", label: "Ganhos" },
-  { id: "recompensas", label: "Benefícios" },
+  
   { id: "corridas", label: "Corridas" },
   { id: "faq", label: "FAQ" },
 ];
@@ -84,7 +84,7 @@ const STICKY_LABEL: Record<string, string> = {
   topo: "Quero participar",
   "como-funciona": "Quero participar",
   ganhos: "Quero ganhar com isso",
-  recompensas: "Quero esses benefícios",
+  
   corridas: "Escolher minha corrida",
   cadastro: "Garantir minha vaga",
   faq: "Ainda tenho dúvidas",
@@ -178,7 +178,7 @@ function RunffCreatorsPage() {
   }, []);
 
   useEffect(() => {
-    const ids = ["topo", "como-funciona", "ganhos", "recompensas", "corridas", "cadastro", "faq"];
+    const ids = ["topo", "como-funciona", "ganhos", "corridas", "cadastro", "faq"];
     const observer = new IntersectionObserver(
       (entries) => {
         const best = entries
@@ -220,7 +220,7 @@ function RunffCreatorsPage() {
       <StatsBand heroMsg={heroMsg} />
       <ComoFunciona />
       <Simulador heroMsg={heroMsg} />
-      <Recompensas heroMsg={heroMsg} />
+      
       <Corridas events={events} error={eventsError} cidade={cidade} heroMsg={heroMsg} />
       <Cadastro cidade={cidade} events={events} />
       <Faq heroMsg={heroMsg} />
@@ -385,17 +385,7 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
         className="relative mx-auto grid w-full max-w-[1500px] gap-10 px-5 md:px-10 lg:grid-cols-2 lg:items-end"
       >
         <div className="max-w-2xl">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 border px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em]"
-            style={{ borderColor: LIME, color: LIME }}
-          >
-            <Sparkles className="h-3 w-3" />
-            Runff Creators · Vagas limitadas
-          </motion.div>
-
-          <h1 className="mt-6 font-display uppercase leading-[0.88] tracking-[-0.015em] text-[clamp(2.5rem,8vw,6.5rem)]">
+          <h1 className="font-display uppercase leading-[0.88] tracking-[-0.015em] text-[clamp(2.5rem,8vw,6.5rem)]">
             {lines.map((line, i) => (
               <span key={line} className="block overflow-hidden">
                 <motion.span
@@ -433,18 +423,7 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
               QUERO SER INFLUENCER RUNFF
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
-            <button
-              onClick={() => scrollToId("cadastro")}
-              className="inline-flex min-h-[50px] items-center justify-center gap-2 border px-7 text-[12px] font-semibold uppercase tracking-[0.18em] transition hover:border-white/60"
-              style={{ borderColor: "rgba(255,255,255,0.35)" }}
-            >
-              Fazer meu cadastro
-            </button>
           </div>
-
-          <p className="mt-6 text-[12px] uppercase tracking-[0.18em] text-white/45">
-            Vagas limitadas{cidade ? ` · Corridas perto de ${cidade}` : ""}
-          </p>
         </div>
 
       </motion.div>
@@ -656,94 +635,6 @@ function Simulador({ heroMsg }: { heroMsg: string }) {
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <CtaWhats heroMsg={heroMsg} label="Quero ganhar com isso" origem="simulador" />
             <CtaCadastro label="Fazer meu cadastro" />
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------------------------------------------------- recompensas */
-
-const TRILHA = [
-  {
-    icon: Coins,
-    marco: "Comissão",
-    premio: "Até 10% por inscrição",
-    detalhe: "Toda venda com seu link rende. Todo mês.",
-  },
-  {
-    icon: Gift,
-    marco: "Campanha de conteúdo",
-    premio: "Inscrição + kit completo",
-    detalhe: "10 conteúdos aprovados e você corre de graça.",
-  },
-  {
-    icon: Ticket,
-    marco: "Cupom opcional",
-    premio: "Desconto para sua base",
-    detalhe: "Se você quiser. Sai dos seus 10%.",
-  },
-  {
-    icon: Users,
-    marco: "Equipe à disposição",
-    premio: "Apoio de verdade",
-    detalhe: "Ideias, conteúdo e vendas com o time Runff.",
-  },
-];
-
-function Recompensas({ heroMsg }: { heroMsg: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 70%", "end 60%"] });
-  const line = useSpring(scrollYProgress, { stiffness: 90, damping: 24, mass: 0.4 });
-
-  return (
-    <section id="recompensas" className="px-5 py-20 md:px-10 md:py-24">
-      <div className="mx-auto max-w-[1500px]">
-        <Reveal>
-          <SectionTag n="03">O que você recebe</SectionTag>
-          <SectionTitle className="mt-6 max-w-3xl">O que está em jogo.</SectionTitle>
-          <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-white/65">
-            Ganhe com suas vendas. Ou corra de graça. Ou os dois.
-          </p>
-        </Reveal>
-
-        <div ref={ref} className="relative mt-14">
-          <div className="absolute left-0 right-0 top-0 h-px" style={{ background: LINE }} />
-          <motion.div
-            className="absolute left-0 top-0 h-px origin-left"
-            style={{ scaleX: line, background: LIME, width: "100%" }}
-          />
-          <div className="grid gap-px md:grid-cols-2 lg:grid-cols-4" style={{ background: LINE }}>
-            {TRILHA.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <Reveal key={item.marco} delay={i * 0.06}>
-                  <div className="h-full p-7" style={{ background: "#0B0B0B" }}>
-                    <Icon className="h-6 w-6" style={{ color: LIME }} />
-                    <p className="mt-6 text-[11px] uppercase tracking-[0.18em] text-white/45">
-                      {item.marco}
-                    </p>
-                    <h3 className="mt-2 font-display text-[26px] uppercase leading-tight">
-                      {item.premio}
-                    </h3>
-                    <p className="mt-3 text-[13px] leading-relaxed text-white/55">{item.detalhe}</p>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-
-        <p className="mt-8 max-w-3xl text-[13px] leading-relaxed text-white/40">
-          * Cupom opcional: comissão + cupom, no máximo 10%. Vagas limitadas, sujeitas à validação
-          da equipe.
-        </p>
-
-        <Reveal delay={0.1}>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <CtaWhats heroMsg={heroMsg} label="Quero esses benefícios" origem="recompensas" />
-            <CtaCadastro label="Garantir minha vaga" />
           </div>
         </Reveal>
       </div>
@@ -1498,7 +1389,7 @@ function Fechamento({ heroMsg }: { heroMsg: string }) {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(105deg, rgba(204,252,87,0.92) 0%, rgba(204,252,87,0.9) 30%, rgba(11,11,11,0.9) 30%, rgba(11,11,11,0.95) 100%)",
+            "linear-gradient(180deg, rgba(11,11,11,0.65) 0%, rgba(11,11,11,0.9) 100%)",
         }}
       />
       <div className="relative mx-auto max-w-[1500px]">
