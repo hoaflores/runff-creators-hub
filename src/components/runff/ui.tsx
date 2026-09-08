@@ -60,15 +60,17 @@ export function Marquee({
   items,
   reverse = false,
   dark = false,
+  className = "",
 }: {
   items: string[];
   reverse?: boolean;
   dark?: boolean;
+  className?: string;
 }) {
   const loop = [...items, ...items, ...items];
   return (
     <div
-      className="flex overflow-hidden border-y py-4"
+      className={`flex overflow-hidden border-y py-4 ${className}`}
       style={{ borderColor: LINE, background: dark ? "transparent" : LIME }}
     >
       <div
