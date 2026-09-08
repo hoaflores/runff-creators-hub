@@ -324,7 +324,7 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
     <section
       id="topo"
       ref={ref}
-      className="relative flex min-h-[68svh] flex-col justify-start overflow-hidden pb-14 pt-32 md:min-h-[86svh] md:pb-24 md:pt-40"
+      className="relative flex min-h-[58svh] flex-col justify-center overflow-hidden pb-10 pt-28 md:min-h-[70svh] md:pb-16 md:pt-32"
     >
       <motion.div className="absolute inset-0" style={{ y }}>
         <video
@@ -355,7 +355,7 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
 
       <motion.div
         style={{ opacity: fade }}
-        className="relative mx-auto grid w-full max-w-[1500px] gap-10 px-5 md:px-10 lg:grid-cols-1 lg:items-end"
+        className="relative mx-auto grid w-full max-w-[1500px] gap-6 px-5 md:px-10 lg:grid-cols-1 lg:items-center"
       >
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="font-display uppercase leading-[0.88] tracking-[-0.015em] text-[clamp(2.5rem,8vw,6.5rem)]">
