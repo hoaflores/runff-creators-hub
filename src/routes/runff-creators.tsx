@@ -324,7 +324,7 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
     <section
       id="topo"
       ref={ref}
-      className="relative flex min-h-[68svh] flex-col justify-start overflow-hidden pb-14 pt-32 md:min-h-[86svh] md:pb-24 md:pt-40"
+      className="relative flex min-h-[58svh] flex-col justify-center overflow-hidden pb-10 pt-28 md:min-h-[70svh] md:pb-16 md:pt-32"
     >
       <motion.div className="absolute inset-0" style={{ y }}>
         <video
