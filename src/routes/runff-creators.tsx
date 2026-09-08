@@ -383,19 +383,6 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
             CORRA SEM CUSTOS, GANHE EQUIPAMENTOS, RECEBA KITS DAS CORRIDAS E AINDA GANHE COMISSOES PARA ISSO!
           </motion.p>
 
-          <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <a
-              href={whatsappLink(heroMsg)}
-              target="_blank"
-              rel="noopener"
-              onClick={() => track("whatsapp_open", { origem: "hero" })}
-              className="group inline-flex min-h-[50px] items-center justify-center gap-2 px-7 text-[12px] font-semibold uppercase tracking-[0.18em]"
-              style={{ background: LIME, color: "#0B0B0B" }}
-            >
-              QUERO SER INFLUENCER RUNFF
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-          </div>
         </div>
 
       </motion.div>
