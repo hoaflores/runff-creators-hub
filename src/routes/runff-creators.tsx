@@ -207,7 +207,6 @@ function RunffCreatorsPage() {
 
       <Header scrolled={scrolled} heroMsg={heroMsg} />
       <Hero cidade={cidade} heroMsg={heroMsg} />
-      <Marquee items={["CORRA", "INFLUENCIE", "GANHE", "REPITA", "RUNFF CREATORS"]} />
       <StatsBand heroMsg={heroMsg} />
       <ComoFunciona />
       <Simulador heroMsg={heroMsg} />
