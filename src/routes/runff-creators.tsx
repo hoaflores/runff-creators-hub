@@ -207,7 +207,6 @@ function RunffCreatorsPage() {
 
       <Header scrolled={scrolled} heroMsg={heroMsg} />
       <Hero cidade={cidade} heroMsg={heroMsg} />
-      <Marquee items={["CORRA", "INFLUENCIE", "GANHE", "REPITA", "RUNFF CREATORS"]} />
       <StatsBand heroMsg={heroMsg} />
       <ComoFunciona />
       <Simulador heroMsg={heroMsg} />
@@ -275,6 +274,12 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
           </div>
         </div>
 
+        <Marquee
+          items={["CORRA", "INFLUENCIE", "GANHE", "REPITA", "RUNFF CREATORS"]}
+          dark
+          className="border-t border-b-0 border-white/10 py-1.5 [&>div]:gap-6 [&_span]:gap-6 [&_span]:text-[10px] [&_span]:font-semibold [&_span]:tracking-[0.22em] [&_span]:text-white/40"
+        />
+
         <AnimatePresence>
           {open && (
             <motion.div
@@ -319,7 +324,7 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
     <section
       id="topo"
       ref={ref}
-      className="relative flex min-h-[68svh] flex-col justify-start overflow-hidden pb-14 pt-24 md:min-h-[86svh] md:pb-24 md:pt-28"
+      className="relative flex min-h-[68svh] flex-col justify-start overflow-hidden pb-14 pt-32 md:min-h-[86svh] md:pb-24 md:pt-40"
     >
       <motion.div className="absolute inset-0" style={{ y }}>
         <video
@@ -350,9 +355,9 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
 
       <motion.div
         style={{ opacity: fade }}
-        className="relative mx-auto grid w-full max-w-[1500px] gap-10 px-5 md:px-10 lg:grid-cols-2 lg:items-end"
+        className="relative mx-auto grid w-full max-w-[1500px] gap-10 px-5 md:px-10 lg:grid-cols-1 lg:items-end"
       >
-        <div className="max-w-2xl">
+        <div className="mx-auto max-w-4xl text-center">
           <h1 className="font-display uppercase leading-[0.88] tracking-[-0.015em] text-[clamp(2.5rem,8vw,6.5rem)]">
             {lines.map((line, i) => (
               <span key={line} className="block overflow-hidden">
@@ -373,12 +378,12 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="mt-6 max-w-lg font-display uppercase leading-[1.05] text-[clamp(1.2rem,2.4vw,1.7rem)] text-white/80"
+            className="mx-auto mt-6 max-w-2xl font-display uppercase leading-[1.05] text-[clamp(1.2rem,2.4vw,1.7rem)] text-white/80"
           >
             CORRA SEM CUSTOS, GANHE EQUIPAMENTOS, RECEBA KITS DAS CORRIDAS E AINDA GANHE COMISSOES PARA ISSO!
           </motion.p>
 
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <a
               href={whatsappLink(heroMsg)}
               target="_blank"
