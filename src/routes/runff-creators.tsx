@@ -116,7 +116,7 @@ function CtaCadastro({ label, className = "" }: { label: string; className?: str
   return (
     <button
       onClick={() => scrollToId("cadastro")}
-      className={`inline-flex min-h-[52px] w-full items-center justify-center gap-2 border px-7 text-[12px] font-semibold uppercase tracking-[0.18em] transition hover:border-white/60 sm:w-auto ${className}`}
+      className={`hidden min-h-[52px] w-full items-center justify-center gap-2 border px-7 sm:inline-flex text-[12px] font-semibold uppercase tracking-[0.18em] transition hover:border-white/60 sm:w-auto ${className}`}
       style={{ borderColor: "rgba(255,255,255,0.35)" }}
     >
       {label}
@@ -240,9 +240,9 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
           borderBottom: scrolled ? `1px solid ${LINE}` : "1px solid transparent",
         }}
       >
-        <div className="mx-auto flex max-w-[1500px] items-center justify-between px-5 py-4 md:px-10">
+        <div className="mx-auto flex max-w-[1500px] items-center justify-between px-5 py-3 md:px-10 md:py-4">
           <button onClick={() => scrollToId("topo")} className="flex items-baseline gap-2">
-            <span className="font-display text-2xl uppercase tracking-tight">RUNFF</span>
+            <span className="font-display text-xl uppercase tracking-tight md:text-2xl">RUNFF</span>
             <span
               className="text-[11px] font-semibold uppercase tracking-[0.24em]"
               style={{ color: LIME }}
@@ -277,7 +277,7 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
         <Marquee
           items={["CORRA", "INFLUENCIE", "GANHE", "REPITA", "RUNFF CREATORS"]}
           dark
-          className="border-t border-b-0 border-white/10 py-1.5 [&>div]:gap-6 [&_span]:gap-6 [&_span]:text-[10px] [&_span]:font-semibold [&_span]:tracking-[0.22em] [&_span]:text-white/40"
+          className={`border-t border-b-0 border-white/10 py-1 md:py-1.5 ${scrolled ? "hidden md:flex" : "flex"} [&>div]:gap-6 [&_span]:gap-6 [&_span]:text-[10px] [&_span]:font-semibold [&_span]:tracking-[0.22em] [&_span]:text-white/40`}
         />
 
         <AnimatePresence>
@@ -412,15 +412,15 @@ function StatsBand({ heroMsg }: { heroMsg: string }) {
   ];
 
   return (
-    <section className="border-b px-5 py-12 md:px-10" style={{ borderColor: LINE }}>
+    <section className="border-b px-5 py-10 md:px-10 md:py-12" style={{ borderColor: LINE }}>
       <div className="mx-auto max-w-[1500px]">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-8 lg:grid-cols-4">
           {stats.map((stat, i) => (
             <Reveal key={i} delay={i * 0.06}>
-              <p className="font-display leading-none text-[clamp(2.2rem,10vw,4rem)]" style={{ color: LIME }}>
+              <p className="font-display leading-none text-[clamp(2rem,7vw,4rem)]" style={{ color: LIME }}>
                 {stat.value}
               </p>
-              <p className="mt-2 text-[13px] uppercase tracking-[0.14em] text-white/45">{stat.label}</p>
+              <p className="mt-2 text-[11px] uppercase leading-snug tracking-[0.12em] text-white/45 md:text-[13px]">{stat.label}</p>
             </Reveal>
           ))}
         </div>
@@ -462,26 +462,26 @@ const PASSOS = [
 
 function ComoFunciona() {
   return (
-    <section id="como-funciona" className="px-5 py-20 md:px-10 md:py-24" style={{ background: "#101010" }}>
+    <section id="como-funciona" className="scroll-mt-28 px-5 py-14 md:scroll-mt-32 md:px-10 md:py-24" style={{ background: "#101010" }}>
       <div className="mx-auto max-w-[1500px]">
         <Reveal>
           <SectionTag n="01">Como funciona</SectionTag>
-          <SectionTitle className="mt-6 max-w-3xl">
+          <SectionTitle className="mt-4 md:mt-6 max-w-3xl">
             Do cadastro à comissão em quatro passos.
           </SectionTitle>
         </Reveal>
 
-        <div className="mt-14 grid gap-px md:grid-cols-2 lg:grid-cols-4" style={{ background: LINE }}>
+        <div className="mt-8 grid gap-px md:mt-14 md:grid-cols-2 lg:grid-cols-4" style={{ background: LINE }}>
           {PASSOS.map((passo, i) => {
             const Icon = passo.icon;
             return (
               <Reveal key={passo.t} delay={i * 0.06}>
-                <div className="h-full p-7" style={{ background: "#101010" }}>
+                <div className="h-full p-6 md:p-7" style={{ background: "#101010" }}>
                   <Icon className="h-6 w-6" style={{ color: LIME }} />
-                  <p className="font-mono mt-5 text-[12px]" style={{ color: LIME }}>
+                  <p className="font-mono mt-4 text-[12px]" style={{ color: LIME }}>
                     0{i + 1}
                   </p>
-                  <h3 className="mt-3 font-display text-[24px] uppercase leading-tight">{passo.t}</h3>
+                  <h3 className="mt-2 font-display text-[21px] uppercase leading-tight md:mt-3 md:text-[24px]">{passo.t}</h3>
                   <p className="mt-3 text-[14px] leading-relaxed text-white/60">{passo.d}</p>
                 </div>
               </Reveal>
@@ -502,7 +502,7 @@ function ComoFunciona() {
               </div>
               <button
                 onClick={() => scrollToId("cadastro")}
-                className="inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 px-6 text-[11px] font-semibold uppercase tracking-[0.18em] transition hover:opacity-90"
+                className="inline-flex min-h-[48px] w-full shrink-0 items-center justify-center gap-2 px-6 text-[11px] md:w-auto font-semibold uppercase tracking-[0.18em] transition hover:opacity-90"
                 style={{ background: LIME, color: "#0B0B0B" }}
               >
                 Quero essa vaga <ArrowRight className="h-4 w-4" />
@@ -523,12 +523,12 @@ function Simulador({ heroMsg }: { heroMsg: string }) {
   const ganho = ticket * 0.1 * vendas;
 
   return (
-    <section id="ganhos" className="px-5 py-20 md:px-10 md:py-24">
-      <div className="mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-2 lg:items-center">
+    <section id="ganhos" className="scroll-mt-28 px-5 py-14 md:scroll-mt-32 md:px-10 md:py-24">
+      <div className="mx-auto grid max-w-[1500px] gap-8 lg:grid-cols-2 lg:gap-12 lg:items-center">
         <Reveal>
           <SectionTag n="02">Quanto você pode ganhar</SectionTag>
-          <SectionTitle className="mt-6">Quanto vale a sua audiência?</SectionTitle>
-          <p className="mt-6 max-w-md text-[15px] leading-relaxed text-white/65">
+          <SectionTitle className="mt-4 md:mt-6">Quanto vale a sua audiência?</SectionTitle>
+          <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/65">
             Arraste e descubra.*
           </p>
         </Reveal>
@@ -640,17 +640,17 @@ function Corridas({
   }, [events, filtro, cidade]).slice(0, 24);
 
   return (
-    <section id="corridas" className="px-5 py-20 md:px-10 md:py-24" style={{ background: "#101010" }}>
+    <section id="corridas" className="scroll-mt-28 px-5 py-14 md:scroll-mt-32 md:px-10 md:py-24" style={{ background: "#101010" }}>
       <div className="mx-auto max-w-[1500px]">
         <Reveal>
           <SectionTag n="04">Próximas corridas</SectionTag>
-          <SectionTitle className="mt-6 max-w-3xl">Qual prova você quer ganhar?</SectionTitle>
-          <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-white/65">
+          <SectionTitle className="mt-4 md:mt-6 max-w-3xl">Qual prova você quer ganhar?</SectionTitle>
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/65">
             Escolha a sua. Vagas sujeitas à aprovação do time.
           </p>
         </Reveal>
 
-        <div className="mt-10 flex flex-wrap items-center gap-2">
+        <div className="mt-6 flex flex-wrap items-center gap-2 md:mt-10">
           {(
             [
               ["todas", "Todas"],
@@ -701,7 +701,7 @@ function Corridas({
 
         <div
           ref={scroller}
-          className="runff-scroll -mx-5 mt-10 flex snap-x snap-mandatory gap-px overflow-x-auto px-5 pb-4 md:mx-0 md:px-0"
+          className="runff-scroll -mx-5 mt-6 flex snap-x md:mt-10 snap-mandatory gap-px overflow-x-auto px-5 pb-4 md:mx-0 md:px-0"
         >
           {!events &&
             Array.from({ length: 4 }).map((_, i) => (
@@ -725,7 +725,7 @@ function Corridas({
                 target="_blank"
                 rel="noopener"
                 onClick={() => track("event_card_click", { id: event.source_id, cidade: event.city })}
-                className="group flex w-[300px] shrink-0 snap-start flex-col border md:w-[340px]"
+                className="group flex w-[82vw] max-w-[340px] shrink-0 snap-start flex-col border sm:w-[300px] md:w-[340px]"
                 style={{ background: "#0E0E0E", borderColor: "#1F1F1F" }}
               >
                 <div className="relative aspect-[16/10] overflow-hidden" style={{ background: "#1A1A1A" }}>
@@ -750,7 +750,7 @@ function Corridas({
                     </div>
                   )}
                 </div>
-                <div className="flex flex-1 flex-col p-6">
+                <div className="flex flex-1 flex-col p-5 md:p-6">
                   <h3 className="font-display text-[22px] uppercase leading-[1.03]">{event.title}</h3>
                   <p className="mt-3 inline-flex items-center gap-1.5 text-[13px] text-white/55">
                     <MapPin className="h-3.5 w-3.5" />
@@ -933,19 +933,19 @@ function Cadastro({ cidade, events }: { cidade: string | null; events: RunffEven
     "min-h-[48px] w-full border bg-transparent px-4 text-[15px] text-white outline-none transition focus:border-[#CCFC57] placeholder:text-white/30";
 
   return (
-    <section id="cadastro" className="px-5 py-20 md:px-10 md:py-24">
-      <div className="mx-auto grid max-w-[1500px] gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+    <section id="cadastro" className="scroll-mt-28 px-5 py-14 md:scroll-mt-32 md:px-10 md:py-24">
+      <div className="mx-auto grid max-w-[1500px] gap-8 lg:gap-14 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <Reveal>
             <SectionTag n="05">Cadastro</SectionTag>
-            <SectionTitle className="mt-6">
+            <SectionTitle className="mt-4 md:mt-6">
               Garanta sua vaga.{" "}
               <span style={{ color: LIME }}>Dois minutos.</span>
             </SectionTitle>
-            <p className="mt-6 max-w-md text-[15px] leading-relaxed text-white/65">
+            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/65">
               Depois abrimos o WhatsApp com tudo pronto.
             </p>
-            <ul className="mt-8 space-y-4">
+            <ul className="mt-6 space-y-3 md:mt-8 md:space-y-4">
               {[
                 "Até 10% por inscrição",
                 "10 conteúdos aprovados = kit + inscrição",
@@ -1278,22 +1278,22 @@ const FAQ: [string, string][] = [
 function Faq({ heroMsg }: { heroMsg: string }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="px-5 py-20 md:px-10 md:py-24" style={{ background: "#101010" }}>
+    <section id="faq" className="scroll-mt-28 px-5 py-14 md:scroll-mt-32 md:px-10 md:py-24" style={{ background: "#101010" }}>
       <div className="mx-auto max-w-[1100px]">
         <Reveal>
           <SectionTag n="06">Perguntas frequentes</SectionTag>
-          <SectionTitle className="mt-6">Sem pegadinha.</SectionTitle>
+          <SectionTitle className="mt-4 md:mt-6">Sem pegadinha.</SectionTitle>
         </Reveal>
 
-        <div className="mt-12 border-t" style={{ borderColor: LINE }}>
+        <div className="mt-8 border-t md:mt-12" style={{ borderColor: LINE }}>
           {FAQ.map(([q, a], i) => (
             <div key={q} className="border-b" style={{ borderColor: LINE }}>
               <button
                 onClick={() => setOpen(open === i ? null : i)}
                 aria-expanded={open === i}
-                className="flex min-h-[64px] w-full items-center justify-between gap-6 py-5 text-left"
+                className="flex min-h-[60px] w-full items-center justify-between gap-4 py-4 text-left md:min-h-[64px] md:gap-6 md:py-5"
               >
-                <span className="font-display text-[22px] uppercase leading-tight">{q}</span>
+                <span className="font-display text-[18px] uppercase leading-tight md:text-[22px]">{q}</span>
                 {open === i ? (
                   <Minus className="h-5 w-5 shrink-0" style={{ color: LIME }} />
                 ) : (
@@ -1332,7 +1332,7 @@ function Faq({ heroMsg }: { heroMsg: string }) {
 
 function Fechamento({ heroMsg }: { heroMsg: string }) {
   return (
-    <section className="relative overflow-hidden px-5 py-24 md:px-10 md:py-32">
+    <section className="relative overflow-hidden px-5 py-16 md:px-10 md:py-32">
       <img
         src={heroPoster.url}
         alt=""
@@ -1357,7 +1357,7 @@ function Fechamento({ heroMsg }: { heroMsg: string }) {
             target="_blank"
             rel="noopener"
             onClick={() => track("whatsapp_open", { origem: "fechamento" })}
-            className="group mt-10 inline-flex min-h-[56px] items-center gap-3 px-8 text-[12px] font-semibold uppercase tracking-[0.18em]"
+            className="group mt-8 inline-flex min-h-[56px] w-full items-center justify-center gap-3 px-8 text-center sm:w-auto md:mt-10 text-[12px] font-semibold uppercase tracking-[0.18em]"
             style={{ background: LIME, color: "#0B0B0B" }}
           >
             Quero garantir minha vaga no WhatsApp
@@ -1406,7 +1406,7 @@ function StickyCta({
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 80, opacity: 0 }}
-          className="fixed inset-x-0 bottom-0 z-50 border-t px-4 py-3 lg:hidden"
+          className="fixed inset-x-0 bottom-0 z-50 border-t px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 lg:hidden"
           style={{ borderColor: LINE, background: "rgba(11,11,11,0.95)", backdropFilter: "blur(10px)" }}
         >
           <div className="flex gap-2">
