@@ -237,7 +237,7 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
         style={{
           background: scrolled ? "rgba(11,11,11,0.92)" : "transparent",
           backdropFilter: scrolled ? "blur(10px)" : undefined,
-          borderBottom: scrolled ? `1px solid ${LINE}` : "1px solid transparent",
+          borderBottom: "1px solid transparent",
         }}
       >
         <div className="mx-auto flex max-w-[1500px] items-center justify-between px-5 py-3 md:px-10 md:py-4">
@@ -277,7 +277,7 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
         <Marquee
           items={["CORRA", "INFLUENCIE", "GANHE", "REPITA", "RUNFF CREATORS"]}
           dark
-          className={`border-0 bg-black/55 py-2 md:py-2.5 ${scrolled ? "hidden md:flex" : "flex"} [&>div]:gap-7 [&_span]:gap-7 [&_span]:text-[11px] [&_span]:font-bold [&_span]:tracking-[0.26em] [&_span]:text-white/90 [&>div>span>span]:hidden`}
+          className={`!border-0 bg-black/50 py-2 md:py-2.5 ${scrolled ? "hidden md:flex" : "flex"} [&>div]:gap-6 [&_span]:gap-6 [&_span]:text-[11px] [&_span]:font-bold [&_span]:tracking-[0.24em] [&_span]:text-white/95`}
         />
 
         <AnimatePresence>
