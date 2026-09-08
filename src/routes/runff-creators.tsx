@@ -277,7 +277,7 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
         <Marquee
           items={["CORRA", "INFLUENCIE", "GANHE", "REPITA", "RUNFF CREATORS"]}
           dark
-          className={`border-0 bg-black/45 py-2 md:py-2.5 ${scrolled ? "hidden md:flex" : "flex"} [&>div]:gap-6 [&_span]:gap-6 [&_span]:text-[11px] [&_span]:font-bold [&_span]:tracking-[0.24em] [&_span]:text-white/85`}
+          className={`border-0 bg-black/55 py-2 md:py-2.5 ${scrolled ? "hidden md:flex" : "flex"} [&>div]:gap-7 [&_span]:gap-7 [&_span]:text-[11px] [&_span]:font-bold [&_span]:tracking-[0.26em] [&_span]:text-white/90 [&>div>span>span]:hidden`}
         />
 
         <AnimatePresence>
