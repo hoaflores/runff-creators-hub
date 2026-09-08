@@ -277,7 +277,7 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
         <Marquee
           items={["CORRA", "INFLUENCIE", "GANHE", "REPITA", "RUNFF CREATORS"]}
           dark
-          className={`border-t border-b-0 border-white/10 py-1 md:py-1.5 ${scrolled ? "hidden md:flex" : "flex"} [&>div]:gap-6 [&_span]:gap-6 [&_span]:text-[10px] [&_span]:font-semibold [&_span]:tracking-[0.22em] [&_span]:text-white/40"
+          className={`border-t border-b-0 border-white/10 py-1 md:py-1.5 ${scrolled ? "hidden md:flex" : "flex"} [&>div]:gap-6 [&_span]:gap-6 [&_span]:text-[10px] [&_span]:font-semibold [&_span]:tracking-[0.22em] [&_span]:text-white/40`}
         />
 
         <AnimatePresence>
@@ -524,7 +524,7 @@ function Simulador({ heroMsg }: { heroMsg: string }) {
 
   return (
     <section id="ganhos" className="scroll-mt-28 px-5 py-14 md:scroll-mt-32 md:px-10 md:py-24">
-      <div className="mx-auto grid max-w-[1500px] gap-8 lg:grid-cols-12 lg:gap-12 lg:grid-cols-2 lg:items-center">
+      <div className="mx-auto grid max-w-[1500px] gap-8 lg:grid-cols-2 lg:gap-12 lg:items-center">
         <Reveal>
           <SectionTag n="02">Quanto você pode ganhar</SectionTag>
           <SectionTitle className="mt-4 md:mt-6">Quanto vale a sua audiência?</SectionTitle>
