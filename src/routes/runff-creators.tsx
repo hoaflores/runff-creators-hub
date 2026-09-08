@@ -274,6 +274,12 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
           </div>
         </div>
 
+        <Marquee
+          items={["CORRA", "INFLUENCIE", "GANHE", "REPITA", "RUNFF CREATORS"]}
+          dark
+          className="border-t border-b-0 border-white/10 py-1.5 [&>div]:gap-6 [&_span]:gap-6 [&_span]:text-[10px] [&_span]:font-semibold [&_span]:tracking-[0.22em] [&_span]:text-white/40"
+        />
+
         <AnimatePresence>
           {open && (
             <motion.div
