@@ -355,7 +355,7 @@ function Hero({ cidade, heroMsg }: { cidade: string | null; heroMsg: string }) {
 
       <motion.div
         style={{ opacity: fade }}
-        className="relative mx-auto grid w-full max-w-[1500px] gap-10 px-5 md:px-10 lg:grid-cols-1 lg:items-end"
+        className="relative mx-auto grid w-full max-w-[1500px] gap-6 px-5 md:px-10 lg:grid-cols-1 lg:items-center"
       >
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="font-display uppercase leading-[0.88] tracking-[-0.015em] text-[clamp(2.5rem,8vw,6.5rem)]">
