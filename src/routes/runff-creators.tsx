@@ -269,32 +269,8 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
           className={`!border-0 bg-black/50 py-2 md:py-2.5 ${scrolled ? "hidden md:flex" : "flex"} [&>div]:gap-6 [&_span]:gap-6 [&_span]:text-[11px] [&_span]:font-bold [&_span]:tracking-[0.24em] [&_span]:text-white/95`}
         />
 
-        <AnimatePresence>
-          {open && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              className="overflow-hidden border-t lg:hidden"
-              style={{ borderColor: LINE, background: "#0B0B0B" }}
-            >
-              <div className="flex flex-col px-5 py-3">
-                <button
-                  onClick={() => {
-                    setOpen(false);
-                    scrollToId("cadastro");
-                  }}
-                  className="mt-2 mb-3 inline-flex min-h-[52px] items-center justify-center gap-2 px-6 text-[12px] font-semibold uppercase tracking-[0.18em]"
-                  style={{ background: LIME, color: "#0B0B0B" }}
-                >
-                  Garantir minha vaga
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </header>
+
     </>
   );
 }
