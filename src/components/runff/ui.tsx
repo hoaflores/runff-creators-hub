@@ -1,11 +1,11 @@
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode, type RefObject } from "react";
 
 import { LIME, LINE } from "@/lib/runff/config";
 
 /** Visible once the element enters the viewport; falls back to visible if the
  *  observer never fires (some mobile browsers / fast scrolling). */
-function useSeen(ref: React.RefObject<HTMLElement | null>) {
+function useSeen(ref: RefObject<HTMLElement | null>) {
   const [seen, setSeen] = useState(false);
 
   useEffect(() => {
@@ -54,7 +54,7 @@ export function Reveal({
       ref={ref}
       className={className}
       initial={reduced ? false : { opacity: 0, y }}
-      animate={seen || reduced ? { opacity: 1, y: 0 } : undefined}
+      animate={seen || reduced ? { opacity: 1, y: 0 } : { opacity: 0, y }}
       transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
