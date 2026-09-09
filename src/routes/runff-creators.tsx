@@ -11,7 +11,7 @@ import {
   Coins,
   MapPin,
   Minus,
-  Plus,
+
   Sparkles,
   Ticket,
   Users,
