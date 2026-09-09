@@ -715,12 +715,8 @@ function Corridas({
           {list.map((event, i) => {
             const dias = daysUntil(event.event_date);
             return (
-              <motion.a
+              <a
                 key={event.source_id}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: Math.min(i, 4) * 0.05 }}
                 href={event.event_url ?? "https://runff.com.br/#lista_eventos"}
                 target="_blank"
                 rel="noopener"

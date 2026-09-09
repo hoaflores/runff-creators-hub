@@ -1,4 +1,4 @@
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState, type ReactNode, type RefObject } from "react";
 
 import { LIME, LINE } from "@/lib/runff/config";
@@ -141,7 +141,7 @@ export function Counter({
   decimals?: number;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const inView = useSeen(ref);
   const reduced = useReducedMotion();
   const [value, setValue] = useState(0);
 
