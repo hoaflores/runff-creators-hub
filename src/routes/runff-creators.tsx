@@ -772,7 +772,7 @@ function Corridas({
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
-              </motion.a>
+              </a>
             );
           })}
         </div>
