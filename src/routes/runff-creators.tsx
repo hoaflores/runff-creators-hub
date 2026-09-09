@@ -499,6 +499,10 @@ function ComoFunciona() {
                 <h3 className="mt-1.5 font-display text-[22px] uppercase leading-tight md:text-[28px]">
                   10 conteúdos aprovados = corrida de graça, com kit completo
                 </h3>
+                <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-white/70">
+                  <span className="font-semibold" style={{ color: LIME }}>Vagas limitadas por corrida.</span>{" "}
+                  A aprovação não é automática: nossa equipe valida cada pedido antes de confirmar a vaga.
+                </p>
               </div>
               <button
                 onClick={() => scrollToId("cadastro")}
@@ -1121,6 +1125,12 @@ function Cadastro({ cidade, events }: { cidade: string | null; events: RunffEven
                           ))}
                           <option value="Outra">Outra / Ainda não sei</option>
                         </select>
+                        <div className="mt-3 border-l-2 bg-white/[0.03] p-3" style={{ borderColor: LIME }}>
+                          <p className="text-[12px] leading-relaxed text-white/80">
+                            <span className="font-semibold" style={{ color: LIME }}>Vagas limitadas por corrida.</span>{" "}
+                            Enviar o cadastro não garante a vaga: nossa equipe avalia e entra em contato para confirmar.
+                          </p>
+                        </div>
                       </div>
                       <div className="sm:col-span-2">
                         <label className="mb-2 block text-[11px] uppercase tracking-[0.18em] text-white/50" htmlFor="f-cupom">
