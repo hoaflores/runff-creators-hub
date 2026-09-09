@@ -1,7 +1,38 @@
-import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState, type ReactNode, type RefObject } from "react";
 
 import { LIME, LINE } from "@/lib/runff/config";
+
+/** Visible once the element enters the viewport; falls back to visible if the
+ *  observer never fires (some mobile browsers / fast scrolling). */
+function useSeen(ref: RefObject<HTMLElement | null>) {
+  const [seen, setSeen] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setSeen(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setSeen(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0, rootMargin: "0px 0px -5% 0px" },
+    );
+    io.observe(el);
+    // safety: if the element is already on screen at mount, reveal it
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) setSeen(true);
+    return () => io.disconnect();
+  }, [ref]);
+
+  return seen;
+}
 
 export function Reveal({
   children,
@@ -15,12 +46,15 @@ export function Reveal({
   className?: string;
 }) {
   const reduced = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const seen = useSeen(ref);
+
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={reduced ? false : { opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+      animate={seen || reduced ? { opacity: 1, y: 0 } : { opacity: 0, y }}
       transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
@@ -107,7 +141,7 @@ export function Counter({
   decimals?: number;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const inView = useSeen(ref);
   const reduced = useReducedMotion();
   const [value, setValue] = useState(0);
 
