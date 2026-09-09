@@ -229,7 +229,6 @@ function RunffCreatorsPage() {
 /* ---------------------------------------------------------------- header */
 
 function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
-  const [open, setOpen] = useState(false);
   return (
     <>
       <header
@@ -251,30 +250,20 @@ function Header({ scrolled, heroMsg }: { scrolled: boolean; heroMsg: string }) {
             </span>
           </button>
 
-
-          <div className="flex items-center gap-2 sm:gap-3">
-            <a
-              href={whatsappLink(heroMsg)}
-              target="_blank"
-              rel="noopener"
-              onClick={() => track("whatsapp_open", { origem: "header" })}
-              className="inline-flex min-h-[40px] items-center gap-2 px-3.5 text-[10px] font-semibold uppercase tracking-[0.14em] sm:min-h-[44px] sm:px-5 sm:text-[11px] sm:tracking-[0.16em]"
-              style={{ background: LIME, color: "#0B0B0B" }}
-            >
-              Garantir vaga
-            </a>
-            <button
-              aria-label="Menu"
-              onClick={() => setOpen((v) => !v)}
-              className="flex h-11 w-11 items-center justify-center border lg:hidden"
-              style={{ borderColor: LINE }}
-            >
-              {open ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-            </button>
-          </div>
+          <a
+            href={whatsappLink(heroMsg)}
+            target="_blank"
+            rel="noopener"
+            onClick={() => track("whatsapp_open", { origem: "header" })}
+            className="inline-flex min-h-[40px] items-center gap-2 px-3.5 text-[10px] font-semibold uppercase tracking-[0.14em] sm:min-h-[44px] sm:px-5 sm:text-[11px] sm:tracking-[0.16em]"
+            style={{ background: LIME, color: "#0B0B0B" }}
+          >
+            Garantir vaga
+          </a>
         </div>
 
         <Marquee
+
           items={["CORRA", "INFLUENCIE", "GANHE", "REPITA", "RUNFF CREATORS"]}
           dark
           className={`!border-0 bg-black/50 py-2 md:py-2.5 ${scrolled ? "hidden md:flex" : "flex"} [&>div]:gap-6 [&_span]:gap-6 [&_span]:text-[11px] [&_span]:font-bold [&_span]:tracking-[0.24em] [&_span]:text-white/95`}
