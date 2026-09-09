@@ -908,7 +908,7 @@ function Cadastro({ cidade, events }: { cidade: string | null; events: RunffEven
               <span style={{ color: LIME }}>Dois minutos.</span>
             </SectionTitle>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/65">
-              Depois abrimos o WhatsApp com tudo pronto.
+              Um de nossos consultores entrará em contato para confirmar a parceria
             </p>
             <ul className="mt-6 space-y-3 md:mt-8 md:space-y-4">
               {[
